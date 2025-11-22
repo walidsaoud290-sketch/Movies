@@ -23,6 +23,20 @@ const LogIn = () => {
       setErrors(prev=>({...prev,ischeked:""}))
       return true;
     }
+    setIsFormValid(true);
+    setErrors(prev => ({ ...prev, password: "" }))
+  }
+
+  const validateCheckbox = () => {
+    const ischeked = document.getElementById('terms').checked;
+    if (!ischeked) {
+      setErrors(prev => ({ ...prev, ischeked: "you must accept terms" }))
+      setIsFormValid(false)
+      return;
+    }
+    setIsFormValid(true);
+    setErrors(prev => ({ ...prev, ischeked: "" }))
+  }
 
 
      const validateForm = (e)=>{
@@ -45,11 +59,11 @@ const LogIn = () => {
   return (
     <div className="container LogIn py-5">
       <div className="row ">
-        
+
         <div className="col-md-6 mb-4">
           <h2 className="mb-3">Welcome Back!</h2>
           <p className="text-muted">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Quisquam, quod. Connect to continue.
           </p>
         </div>
@@ -80,8 +94,8 @@ const LogIn = () => {
             <p onClick={()=>setIsForgetPassword(true)} className="text-primary small mb-3" style={{ cursor: "pointer" }}>
               Forgot password?
             </p>
-            <p id='create' onClick={()=>setIsHaveAccount(false)} className='text-primary small mb-3'>
-                Don't have an account? Sign Up
+            <p id='create' onClick={() => setIsHaveAccount(false)} className='text-primary small mb-3'>
+              Don't have an account? Sign Up
             </p>
             <button onClick={validateForm} className="btn btn-outline-primary w-100">Log In</button>
 

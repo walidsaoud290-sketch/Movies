@@ -11,7 +11,7 @@ const SignIn = () => {
     const password = useRef();
     const phoneNumber = useRef();
 
-    const validateForm =(e)=>{
+    const validateForm = (e) => {
         e.preventDefault();
         let isEmailValid = useValidatEmail(email.current.value)
         if(isEmailValid.trim()!=="")
@@ -72,8 +72,7 @@ const SignIn = () => {
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio doloremque at aut recusandae molestias nulla sequi sint optio excepturi dolores laudantium laborum alias iusto, repellat cumque quia neque dolore impedit!
             </p>
         </div>
-    </div>
-  )
+    )
 }
 
 export default SignIn
