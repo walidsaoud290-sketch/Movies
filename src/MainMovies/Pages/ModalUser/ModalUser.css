@@ -2,9 +2,11 @@
     color: white;
 }
 .imageUser{
-    width: 150px;
-    border: 3px solid white;
-    cursor: pointer;
+    width: 120px;         /* taille fixe */
+  height: 120px;
+  object-fit: cover;    /* crop propre */
+  border-radius: 50%;   /* garde la forme circulaire */
+  object-position: center;
 }
 .btn-close:nth-child(1){
     position: absolute;
