@@ -1,0 +1,12 @@
+.modal-dialog *{
+    color: white;
+}
+.imageUser{
+    width: 200px;
+    object-fit: cover;
+  border: 3px solid white;
+}
+.btn-close:nth-child(1){
+    position: absolute;
+    top: 0;
+}

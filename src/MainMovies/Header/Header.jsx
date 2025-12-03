@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Header.css';
 import ModalUser from '../Pages/ModalUser/ModalUser';
 
 const Header = () => {
+  const [image,setImage] = useState('vecteezy_default-profile-account-unknown-icon-black-silhouette_20765399.jpg');
+  const handleChangeImage = ()=>{
+    const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setImage(URL.createObjectURL(file)); // preview image
+    }
+  };
+  }
   return (
     <>
       <nav className="navbar nvBarOrigin navbar-expand-lg rounded navbar-light">
@@ -35,7 +44,7 @@ const Header = () => {
                   data-bs-toggle="dropdown" 
                 >
                   <img 
-                    src="vecteezy_default-profile-account-unknown-icon-black-silhouette_20765399.jpg"
+                    src={image}
                     alt="Avatar"
                     width="40"
                     height="40"
@@ -70,7 +79,7 @@ const Header = () => {
       </nav>
 
       {/* Render modal OUTSIDE the dropdown */}
-      <ModalUser id="modalUser" />
+      <ModalUser id="modalUser" image={image} handleChangeImage={handleChangeImage}/>
     </>
   );
 }
