@@ -1,0 +1,61 @@
+.menu {  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+.formHome {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 14px 22px;
+  border-radius: 50px;
+  background: #141414;
+  transition: 0.3s ease;
+}
+
+.formHome input {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+}
+.formHome input:focus{
+    color: white;
+    background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.formHome input::placeholder {
+  color: #aaa;
+}
+
+.formHome svg {
+  color: #e50914;
+}
+
+.formHome:hover {
+  border-color: #e50914;
+  transform: scale(1.02);
+}
+@media (max-width: 768px) {
+  .formHome,
+  .glassSearch,
+  .animatedSearch {
+    width: 90% !important;
+    padding: 12px 18px;
+  }
+.formHome{
+    display: flex;
+    justify-content: space-between;
+}
+  .formHome input,
+  .glassSearch input,
+  .animatedSearch input {
+    font-size: 16px;
+  }
+}
+body{
+    color: white;
+}
+.card .card-body{
+  background-color:#141414;
+  color: white;
+}

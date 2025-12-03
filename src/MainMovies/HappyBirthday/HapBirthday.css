@@ -1,0 +1,100 @@
+.birthday-bg {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: 
+    url("https://i.imgur.com/huN3sQi.jpeg");
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* CARD */
+.birthday-card {
+  background: #fff;
+  padding: 28px;
+  width: 420px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+  animation: popIn 0.5s ease-out;
+  position: relative;
+  z-index: 10;
+}
+
+.birthday-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ff4d4d;
+}
+
+.birthday-text {
+  line-height: 1.6;
+  margin: 15px 0 20px;
+  color: #444;
+}
+
+.birthday-btn {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.birthday-btn:hover {
+  background: #ff1c1c;
+}
+
+/* POP ANIMATION */
+@keyframes popIn {
+  0% { transform: scale(0.6); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* 🎈 BALLOON ANIMATION */
+.balloons .balloon {
+  width: 70px;
+  height: 90px;
+  background: red;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -150px;
+  animation: floatBalloon 6s infinite ease-in-out;
+}
+
+.b1 { left: 10%; background: #ff7675; animation-delay: 0s; }
+.b2 { left: 45%; background: #ffca3a; animation-delay: 1s; }
+.b3 { left: 80%; background: #6a89cc; animation-delay: 2s; }
+
+@keyframes floatBalloon {
+  0% { transform: translateY(0px); opacity: 0.9; }
+  50% { transform: translateY(-400px); opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* 🎊 CONFETTI */
+.confetti {
+  width: 8px;
+  height: 14px;
+  background: hsl(var(--hue), 80%, 60%);
+  position: fixed;
+  top: -20px;
+  animation: fall linear forwards;
+}
+
+.confetti:nth-child(odd) {
+  transform: rotate(45deg);
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}

@@ -7,7 +7,7 @@ var RandomCode =String(Math.floor(100000 + Math.random() * 900000));
 
 const ForgetPassword = () => { 
 
-    const {setIsHavingAccount,setIsForgetPassword} = useContext(context);
+    const {setIsForgetPassword} = useContext(context);
     const [isValideEmail,setIsValidEmail] = useState(false);
     const [iscodeValide,setIsCodeValide] = useState(false);
     const [isTheSamePassword,setIsTheSamePassword] = useState(true);
@@ -31,9 +31,8 @@ const ForgetPassword = () => {
 
         if(currentCode===RandomCode){
             setIsCodeValide(true);
-            document.getElementById('code').value=""
-            document.getElementById('codeErr').innerHTML=""
-            document.getElementById('code').setAttribute('disabled',true)
+            code.current.value=""
+            code.current.setAttribute('readOnly',"")
         }else{
             setIsCodeValide(false);
         }
@@ -58,7 +57,6 @@ const ForgetPassword = () => {
             return ;
         }
         if(confirmPasswordValue===accutalPassword){
-            console.log("walid")
             setIsForgetPassword(false);
             setIsTheSamePassword(true);
         }else{
@@ -80,21 +78,20 @@ const ForgetPassword = () => {
     }
 
   return (
-    <div className='container shadow rounded p-4 bg-white forget' >
-        <div className="txt">
-            <h1>Forget Password</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic asperiores pariatur voluptas culpa ipsam. Consequuntur, assumenda fuga iusto ea eum nulla amet vitae odio voluptatem possimus doloremque harum optio aut.</p>
-           <div className="input-group">
-                <span className='input-group-text'>@</span>
-                <input ref={email} placeholder='your email' type="text" className="form-control txt" />
-
-           </div><br />
+    <div className='shadow  p-4 bg-dark forget row col-sm-10' >
+        <div className="txt text-dark col ">
+            <h1 className='text-light'>Forget Password</h1>
+        <p className='text-white'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic asperiores pariatur voluptas culpa ipsam. Consequuntur, assumenda fuga iusto ea eum nulla amet vitae odio voluptatem possimus doloremque harum optio aut.</p>
+            <div className="form-floating mb-3">
+                <input ref={email} type="email" class="form-control rounded-3" id="floatingInput1" placeholder="name@example.com" />
+                <label htmlFor="floatingInput1">Email address</label>
+            </div><br />
             <p className='text-danger' id='err'></p>
         </div>
             {isValideEmail &&
-            <><div className="divCode">
-                Le code:
-                <input type='text' ref={code} placeholder='XXXXXX' className='form-control' id='code'/>
+            <><div className="form-floating divCode mb-3">
+                <input ref={code} type="text" class="form-control code rounded-3" id="floatingInput2" placeholder="XXXXXX" />
+                <label htmlFor="floatingInput2">Code</label>
             </div>
                 <p className='text-danger' id='codeErr'></p>
             </>
@@ -102,18 +99,26 @@ const ForgetPassword = () => {
          
             <br />
             {iscodeValide && isValideEmail &&
+            <>
             <div className='passwords'>
-
-                    <input type="password" ref={password} name="" placeholder='your password' id="" className="form-control" /><br />
-                    <p className='text-danger' id='passwordErr'></p>
-                    <input type="password"  ref={confirmPassword} name="" placeholder='Confirm your password' id="" className="form-control" />
-                </div>
+            <div className="form-floating mb-3">
+                <input ref={password} type="password" class="form-control rounded-3" id="floatingInput" placeholder="password" />
+                <label htmlFor="floatingInput">Password</label>
+                <p className='text-danger' id='passwordErr'></p>
+            </div>
+            <div className="form-floating mb-3">
+                <input ref={confirmPassword} type="password" class="form-control rounded-3" id="floatingInput" placeholder="Confirm password" />
+                <label htmlFor="floatingInput">Confirm password</label>
+                {!isTheSamePassword && <p className='text-danger'>not the same password !!!</p>}
+            </div>
+            </div>
+            </>
             }
-            {!isTheSamePassword && <p className='text-danger'>not the same password !!!</p>}
+
         <br />
-        {!isValideEmail && <button onClick={Search} className='btn btn-outline-primary'>Search</button>}
-        {isValideEmail && !iscodeValide && <button onClick={Confirm} className='btn btn-outline-primary'>Confirm</button>}
-        {iscodeValide && <button className='btn btn-outline-primary' onClick={Reset}>Reset</button>}
+        {!isValideEmail && <button onClick={Search} className='btn btn-outline-danger w-100'>Search</button>}
+        {isValideEmail && !iscodeValide && <button onClick={Confirm} className='btn btn-outline-danger w-100'>Confirm</button>}
+        {iscodeValide && <button className='btn btn-outline-danger w-100' onClick={Reset}>Reset</button>}
             
     </div>
 

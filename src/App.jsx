@@ -1,34 +1,43 @@
-import { useState ,createContext, useEffect} from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, createContext } from 'react'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import LogIn from './Formulaires/LogInFolder/logIn.jsx';
 import SignIn from './Formulaires/SignInFolder/SignIn.jsx';
 import ForgetPassword from './Formulaires/ForgetPasswordFolder/ForgetPassword.jsx';
-export const context = createContext(); 
-function App() {
+import MainMovies from './MainMovies/Main/MainMovies.jsx';
+import { BrowserRouter } from 'react-router-dom';
 
-  const [dateBirth,setDateBirth] = useState('');
-  const [isFormValid,setIsFormValid] = useState(false)
-  const [HaveAccount,setIsHaveAccount] = useState(true)
-  const [isForgetPassword,setIsForgetPassword] = useState(false);
-  useEffect(()=> {
-    console.log(dateBirth)
-  },[dateBirth])
+export const context = createContext(); 
+
+function App() {
+  const [dateBirth, setDateBirth] = useState('');
+  const [isFormValid, setIsFormValid] = useState(false)
+  const [HaveAccount, setIsHaveAccount] = useState(true)
+  const [isForgetPassword, setIsForgetPassword] = useState(false);
+  const [user, setUser] = useState('');
 
   return (
     <>
-    <context.Provider value={{HaveAccount,setIsHaveAccount,isFormValid,setIsFormValid,setIsForgetPassword,dateBirth,setDateBirth}}>
-      {
-        
-      }
-      {!isForgetPassword ? <div className={`auth-wrapper ${HaveAccount ? "slide-in" : "slide-out"}`}>
-        {HaveAccount ? <LogIn/> : <SignIn/>}
-      </div> : <ForgetPassword />}
-      
-      </context.Provider> 
+      {!isFormValid ? (
+        <context.Provider value={{
+          user, setUser, 
+          HaveAccount, setIsHaveAccount, 
+          isFormValid, setIsFormValid, 
+          setIsForgetPassword, 
+          dateBirth, setDateBirth
+        }}>
+          {!isForgetPassword ? (
+            <div className={`auth-wrapper ${HaveAccount ? "slide-in" : "slide-out"}`}>
+              {HaveAccount ? <LogIn/> : <SignIn/>}
+            </div>
+          ) : (
+            <div className='ForgetPage'><ForgetPassword /></div>
+          )}
+        </context.Provider>
+      ) : (
+          <MainMovies user={user} dateBirth={dateBirth} />
+      )}
     </>
   )
 }
