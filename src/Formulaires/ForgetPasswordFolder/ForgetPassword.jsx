@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import './ForgetPassword.css'
 import { useValidatEmail, useValidatPassword } from '../validation';
 import { context } from '../../App';
-
 var RandomCode =String(Math.floor(100000 + Math.random() * 900000));
 
 const ForgetPassword = () => { 
@@ -33,7 +32,9 @@ const ForgetPassword = () => {
             setIsCodeValide(true);
             code.current.value=""
             code.current.setAttribute('readOnly',"")
+                        document.getElementById('codeErr').innerHTML=""
         }else{
+            document.getElementById('codeErr').innerHTML="Invalide code"
             setIsCodeValide(false);
         }
     }

@@ -2,6 +2,7 @@ import React, { useContext, useRef, useState } from 'react'
 import './SignIn.css'
 import { context } from '../../App'
 import { useValidatEmail,useValidatPassword } from '../validation';
+import Presentation from '../Presentation/Presentation';
 
 const SignIn = () => {
 
@@ -70,21 +71,21 @@ const SignIn = () => {
   return (
     <div className='SignIn row'>
         <div className="col-md-6">
-            <form action="" className='shadow bg-dark '>
+            <form action="" className='shadow' id='FormCreate'>
                 <div className="form-floating mb-3">
-                    <input onChange={e=>setUser(e.currentTarget.value)} type="text" className="form-control rounded-3" id="floatingInput" placeholder="userName" />
-                    <label for="floatingInput">Username</label>
+                    <input onChange={e=>setUser(e.currentTarget.value)} type="text" className="form-control rounded-3 text-dark" id="floatingInput1" placeholder="userName" />
+                    <label htmlFor="floatingInput1">Username</label>
                     {errors.userName && <p className='text-danger'>{errors.userName}</p>}
                 </div>
                 <div className="form-floating mb-3">
-                    <input ref={email} type="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com" />
-                    <label for="floatingInput">Email address</label>
+                    <input ref={email} type="email" class="form-control rounded-3 text-dark" id="floatingInput2" placeholder="name@example.com" />
+                    <label htmlFor="floatingInput2">Email address</label>
                     {errors.email && <p className='text-danger'>{errors.email}</p>}
                 </div>
 
                 <div className="form-floating mb-3">
-                    <input ref={password} type="password" className="form-control rounded-3" id="floatingInput" placeholder="name@example.com" />
-                    <label for="floatingInput">Password</label>
+                    <input ref={password} type="password" className="form-control rounded-3 text-dark" id="floatingInput3" placeholder="name@example.com" />
+                    <label htmlFor="floatingInput3">Password</label>
                     {errors.password && <p className='text-danger'>{errors.password}</p>}
                 </div>
 
@@ -92,18 +93,14 @@ const SignIn = () => {
                     <input type='date' onChange={e=>setDateBirth(e.target.value)} id='la' className="form-control rounded-3"/>
                     {errors.dateBirth && <p className='text-danger'>{errors.dateBirth}</p>}
                 </div>
-                <p style={{cursor:"pointer"}} onClick={()=>setIsHaveAccount(true)} className='text-white rm small mb-3'>Remembered ?</p>
+                <p style={{cursor:"pointer"}} onClick={()=>setIsHaveAccount(true)} className='text-white rm small mb-3 remembered'>Remembered ?</p>
                 <br />
                 <button onClick={validateForm} type="submit" className="btn btn-outline-danger w-100">Sign Up</button>
             </form>
         </div>
 
         <div className="col-md-6 txtSign">
-            <h2 className="mb-3 text-white">Welcome Back!</h2>
-            <p className="text-white">
-                Stream unlimited movies and series anytime, anywhere. Discover trending films, exclusive releases, 
-                and personalized recommendations. Connect to start watching your favorites instantly.
-            </p>
+            <Presentation />
         </div>
     </div>
   )

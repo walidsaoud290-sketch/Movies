@@ -30,7 +30,6 @@ const HomePage = () => {
 
   return (
     <div className='home'>
-      <Header />
       <div className='menu row'>
 {/*         <img src="movie (1).jpg" className='img1 col' alt="" /> */}
         <br />

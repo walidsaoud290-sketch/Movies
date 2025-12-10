@@ -15,3 +15,98 @@
 input[type="file"]{
     display: none;
 }
+.modal-content {
+  background: #0b0b0b !important; 
+  border-radius: 20px;
+  border: none;
+  padding-bottom: 10px;
+  color: white;
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.25);
+}
+
+/* HEADER IMAGE */
+.imageUser {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: none;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+.imageUser:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.7);
+}
+
+/* CLOSE BUTTON */
+.X {
+  border-radius: 50%;
+  filter: invert(1);
+  transition: 0.2s ease-in-out;
+}
+
+.X:hover {
+  filter: none;
+  transform: scale(1.05);
+}
+
+/* ---------- FORM STYLE ---------- */
+
+.form-floating label {
+  color: #ff5c5c;
+}
+
+.form-control {
+  background: #151515 !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 10px !important;
+  padding-left: 15px;
+  box-shadow: inset 0 0 8px rgba(255, 0, 0, 0.25);
+  transition: 0.25s;
+}
+
+.form-control:focus {
+  box-shadow: inset 0 0 12px rgba(255, 0, 0, 0.45);
+}
+
+/* ---------- FOOTER ---------- */
+
+.modal-footer .btn-light {
+  background: #ff1a1a;
+  border: none;
+  color: white;
+  font-weight: 600;
+  transition: 0.2s ease-in-out;
+}
+
+.modal-footer .btn-light:hover {
+  background: #cc0000;
+}
+
+.modal-footer .btn-danger {
+  background: #333;
+  border: none;
+  transition: 0.2s ease-in-out;
+}
+
+.modal-footer .btn-danger:hover {
+  background: #990000;
+  color: white;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 576px) {
+  .imageUser {
+    width: 85px;
+    height: 85px;
+  }
+
+  .modal-content {
+    padding: 5px;
+  }
+}

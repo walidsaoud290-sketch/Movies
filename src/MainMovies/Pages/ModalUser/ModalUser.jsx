@@ -21,7 +21,6 @@ const ModalUser = ({ id }) => {
     <div className="modal fade" id={id} tabIndex="-1">
       <div className="modal-dialog">
         <div className="modal-content bg-dark">
-
           <div className="modal-header d-flex flex-column justify-content-center align-items-center">
             <img 
               src={image}
@@ -47,10 +46,15 @@ const ModalUser = ({ id }) => {
 
           <div className="modal-body">
             <div className="form-floating mb-3">
-                    <input  type="text" className="form-control rounded-3" id="floatingInput" placeholder="userName" />
-                    <label for="floatingInput">Username</label>
+                    <input  type="text" className="form-control rounded-3" id="floatingInput1" placeholder="userName" />
+                    <label htmlFor="floatingInput1">Username</label>
                     {false && <p className='text-danger'></p>}
-                </div>
+            </div>
+            <div className="form-floating mb-3">
+                    <input  type="date" className="form-control rounded-3 text-dark" id="floatingInput2" placeholder="date" />
+                    <label htmlFor="floatingInput2">date</label>
+                    {false && <p className='text-danger'></p>}
+            </div>
 
           </div>
 

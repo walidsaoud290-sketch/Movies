@@ -4,6 +4,137 @@
 .nvB{
     margin-bottom: 30px;
 }
-.nvBarOrigin{
-    background: linear-gradient(rgb(105, 20, 20),rgb(25, 23, 23));
+/* NAVBAR */
+.nvBarOrigin {
+  background: #0d0d0d;              /* Noir profond */
+  padding: 12px 20px;
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.2);
+}
+
+/* LINKS */
+.navbar-brand {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #ff2e2e !important;        /* Rouge vif */
+}
+
+.navbar-nav .nav-item {
+  padding: 8px 18px;
+  margin-right: 10px;
+  cursor: pointer;
+  color: white;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.navbar-nav .nav-item:hover {
+  color: #ff2e2e;
+  transform: translateY(-2px);
+}
+
+/* DROPDOWN */
+.dropdown-menu {
+  background: #1a1a1a;
+  border-radius: 10px;
+  padding: 10px 0;
+}
+
+.dropdown-item {
+  color: white;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+/* AVATAR */
+.nav-link img {
+  border: 2px solid #ff2e2e;
+  transition: 0.3s;
+}
+
+.nav-link img:hover {
+  transform: scale(1.10);
+  box-shadow: 0 0 15px rgba(255,0,0,0.6);
+}
+
+/* MOBILE TOGGLER */
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler-icon {
+  filter: invert(1); /* icon blanche */
+}
+
+/* MODAL */
+.modal-content.bg-dark {
+  background: #0f0f0f !important;
+  border: 1px solid #ff0000;
+}
+
+.modal-header {
+  border-bottom: 1px solid #ff0000;
+}
+
+.modal-footer {
+  border-top: 1px solid #ff0000;
+}
+
+/* INPUT */
+input.form-control {
+  background: #1a1a1a;
+  color: white;
+  border: 1px solid #ff0000;
+}
+
+input.form-control:focus {
+  box-shadow: 0 0 10px rgba(255,0,0,0.5);
+  border-color: #ff0000;
+}
+
+
+
+
+/* DROPDOWN DIVIDER */
+.dropdown-divider {
+  border-color: #ff0000;
+}
+@media (max-width: 992px) {
+  .navbar-nav.nv {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 0;
+    margin-top: 15px;
+    gap: 10px;
+  }
+
+  .navbar-nav .nav-item {
+    margin: 8px 0;
+  }
+
+  .navbar-collapse {
+    background: #0d0d0d;
+    padding: 15px;
+    border-radius: 10px;
+  }
+}
+
+/* DROPDOWN RESPONSIVE */
+@media (max-width: 992px) {
+  .dropdown-menu {
+    width: 50% !important;
+    position: relative !important;
+    transform: none !important;
+  }
+}
+
+/* AVATAR RESPONSIVE */
+@media (max-width: 576px) {
+  .nav-link img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .navbar-brand {
+    font-size: 1.4rem;
+  }
 }

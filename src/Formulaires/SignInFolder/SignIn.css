@@ -14,6 +14,7 @@
   flex-direction: column;
   justify-content: center;
   padding: 36px;
+  
 }
 .txtSign h2 {
   color: #ffffff;
@@ -70,27 +71,49 @@ form input[type="date"]:focus {
 
 /* Error */
 .text-danger { font-size: 13px; margin-top: 6px; color: #d93025; }
-
-/* CTA */
-.btn-outline-primary {
-  height: 52px;
+.btn-outline-danger{
+    height: 50px;
   border-radius: 12px;
-  font-weight: 700;
-  letter-spacing: .2px;
-}
-.btn-outline-primary:hover {
-  transform: translateY(-2px);
-  background: #1e90ff;
+  border: 2px solid #e50914;
   color: #fff;
+  background: transparent;
+  font-weight: 700;
+  margin-top: 10px;
+  transition: 0.3s ease-in-out;
+}
+.btn-outline-danger:hover{
+   background: #e50914;
+  box-shadow: 0 0 18px rgba(229, 9, 20, 0.7);
+  transform: scale(1.03);
+}
+.remembered{
+   color: var(--accent-red);
+  font-weight: 700;
+  text-shadow: 0 0 6px rgba(229,9,20,0.4);
+  animation: pulseRed 1.8s ease-in-out infinite;
+}
+@keyframes pulseRed {
+  0%   { transform: scale(1);     text-shadow: 0 0 6px rgba(229,9,20,0.22); }
+  50%  { transform: scale(1.04);  text-shadow: 0 0 18px rgba(229,9,20,0.55); }
+  100% { transform: scale(1);     text-shadow: 0 0 6px rgba(229,9,20,0.22); }
+}
+#FormCreate{
+  border-radius: 18px;
+  padding: 35px 25px;
+  width: 100%;
+  animation: fadeInUp 0.6s ease-out;
+  border: 1px solid red;
+  box-shadow: 0 0 25px rgba(178, 34, 41, 0.776);
+  transition: 0.3s ease-in-out;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* small link */
-.text-primary { color: #1e90ff; cursor: pointer; }
-.text-primary:hover { text-decoration: underline; }
-
-/* layout */
-@media (max-width: 768px) {
-  .txtSign { padding: 18px 8px; text-align: center; }
-  .txtSign h2 { font-size: 1.8rem; }
-  form { margin-top: 18px; }
-}

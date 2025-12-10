@@ -1,0 +1,86 @@
+:root{
+  --bg-dark: #0b0b0b;
+  --panel-dark: #111;
+  --accent-red: #e50914; /* rouge principal */
+  --accent-red-2: #ff3b3b; /* variante plus claire */
+  --muted: rgba(255,255,255,0.75);
+}
+h2{
+  font-weight: 800;
+  color: var(--accent-red);
+  background: linear-gradient(90deg, var(--accent-red), var(--accent-red-2), #ffd1d1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientShift 3.5s linear infinite;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+.typewriter {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #fff;
+  border-right: 2px solid rgba(255,255,255,0.75); /* curseur */
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0; /* démarre à zéro */
+  animation: typing 5s steps(2000) infinite, blinkCursor 0.7s step-end infinite;
+}
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes typing {
+  0% { width: 0; }
+  50% { width: 65ch; } /* texte complet affiché à 50% */
+  100% { width: 0; }   /* supprime tout à 100% */
+}
+
+/* Curseur clignotant */
+@keyframes blinkCursor {
+  0%, 100% { border-color: rgba(255,255,255,0.75); }
+  50% { border-color: transparent; }
+}
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.big-animated-title {
+  font-size: clamp(2.4rem, 6vw, 4.8rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+
+  /* Dégradé animé */
+  background: linear-gradient(90deg, #ff2e63, #ff6b81, #ffc4d3);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  /* Glow doux */
+  text-shadow: 0 0 20px rgba(255, 0, 80, 0.25);
+
+  /* Animation du gradient */
+  animation: gradientFlow 5s ease infinite, riseMotion 4s ease-in-out infinite;
+}
+@keyframes gradientFlow {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Rise motion (du haut → bas subtilement) */
+@keyframes riseMotion {
+  0%   { transform: translateY(-6px); }
+  50%  { transform: translateY(4px); }
+  100% { transform: translateY(-6px); }
+}

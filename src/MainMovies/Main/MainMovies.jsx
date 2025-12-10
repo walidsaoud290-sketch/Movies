@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import './MainMovies.css'
 import HapBirthday from '../HappyBirthday/HapBirthday';
 import AppMovies from '../AppMovies';
-import { BrowserRouter } from 'react-router-dom';
+import {Route, Router, Routes } from 'react-router-dom';
+import HomePage from '../Pages/HomePage/HomePage';
+import Pricing from '../Pages/Pricing/Pricing';
+import Features from '../Pages/Features/Features';
+import Header from '../Header/Header';
 
 const MainMovies = ({user, dateBirth}) => {
     const [isYourBirthday, setIsYourBirthday] = useState(false);
@@ -19,15 +23,13 @@ const MainMovies = ({user, dateBirth}) => {
     }, [dateBirth]);
 
     return (
-        <>
-        
-        {isYourBirthday && !isClosed && (
+        <>   
+         {isYourBirthday && !isClosed && (
                 <HapBirthday user={user} setIsClosed={setIsClosed}/>
             )}
             {(!isYourBirthday || isClosed) && (
                 <AppMovies />
             )}
-            
         </>
     )
 }
