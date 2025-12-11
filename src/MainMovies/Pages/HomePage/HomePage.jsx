@@ -5,10 +5,18 @@ import './HomePage.css'
 import Card from '../../Card/Card'
 const HomePage = () => {
   const [ListMovies,setMoviesList] =useState([]) 
+//eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwM2VkNTI5MjkyN2Y3MjlmNWRmYWJiMmI1YjU0NzUxMyIsIm5iZiI6MTc1NTU0OTE3Mi41MDQ5OTk5LCJzdWIiOiI2OGEzOGRmNDQxNTM1YzEwYmM4M2I2NjIiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.tjl7XiOV5wEYFZpgbScwAy4pa0vaM4_ciyAOC00ZMEA
+const options = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwM2VkNTI5MjkyN2Y3MjlmNWRmYWJiMmI1YjU0NzUxMyIsIm5iZiI6MTc1NTU0OTE3Mi41MDQ5OTk5LCJzdWIiOiI2OGEzOGRmNDQxNTM1YzEwYmM4M2I2NjIiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.tjl7XiOV5wEYFZpgbScwAy4pa0vaM4_ciyAOC00ZMEA'
+  }
+};
 
   const FetchMovie = async()=>{
     try{
-        const response = await fetch(`https://api.sampleapis.com/movies/action`)
+        const response = await fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc', options)
         if(response.ok){
           const data = await response.json()
           console.log(data)
@@ -22,29 +30,6 @@ const HomePage = () => {
   useEffect(()=>{
       FetchMovie();
   },[])
- /*  const Fetch = async(search="")=>{
-    try{
-
-      setIsLoading(true)
-      const response = search ? await fetch(`https://api.sampleapis.com/movies/${film}/?title=${search}`)
-
-      if(response.ok){
-        const data = await response.json()
-        setMoviesList(data)
-      }
-      console.log(MoviesList)
-    }catch(e){
-      setError("Erreur fetching movies :"+e)
-      console.log(erreur)
-
-    }finally{
-      setIsLoading(false)
-    }
-  }
-
-    useEffect(()=>{
-        Fetch()
-    },[]) */
 
   return (
     <div className='home'>
@@ -63,6 +48,7 @@ const HomePage = () => {
                 <div className='trending-movies-show'>
                     {/*All Trending movies in API in Appwrite*/}
                     <Card />
+                    {ListMovies.results && ListMovies.results.map((movie)=><Card key={movie.id} backdrop_path={movie.backdrop_path} overview={movie.overview} release_date={movie.release_date} title={movie.title} />)}
                 </div>
               </div>
               <div className="all-movies">
