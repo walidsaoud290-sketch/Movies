@@ -45,7 +45,7 @@ const HomePage = () => {
         <br />
         <div className="trending-movies">
           <p>Trending Movie</p>
-          <div className='trending-movies-show'>
+          <div className='trending movies-show'>
             {/*All Trending movies in API in Appwrite*/}
             <Card />
             {ListMovies.results && ListMovies.results.map((movie) => <Card key={movie.id} backdrop_path={movie.backdrop_path} overview={movie.overview} release_date={movie.release_date} title={movie.title} />)}
@@ -53,7 +53,7 @@ const HomePage = () => {
         </div>
         <div className="all-movies">
           <p>All movies</p>
-          <div className='all-movies-show'>
+          <div className='all movies-show'>
             <Card />
           </div>
         </div>
