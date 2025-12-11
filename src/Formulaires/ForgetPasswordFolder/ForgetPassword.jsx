@@ -79,7 +79,7 @@ const ForgetPassword = () => {
     }
 
   return (
-    <div className='shadow  p-4 bg-dark forget row col-sm-10' >
+    <div className='shadow  p-4 forget row col-sm-10' >
         <div className="txt text-dark col ">
             <h1 className='text-light'>Forget Password</h1>
         <p className='text-white'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic asperiores pariatur voluptas culpa ipsam. Consequuntur, assumenda fuga iusto ea eum nulla amet vitae odio voluptatem possimus doloremque harum optio aut.</p>

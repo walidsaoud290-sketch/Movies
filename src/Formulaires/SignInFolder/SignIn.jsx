@@ -93,7 +93,7 @@ const SignIn = () => {
                     <input type='date' onChange={e=>setDateBirth(e.target.value)} id='la' className="form-control rounded-3"/>
                     {errors.dateBirth && <p className='text-danger'>{errors.dateBirth}</p>}
                 </div>
-                <p style={{cursor:"pointer"}} onClick={()=>setIsHaveAccount(true)} className='text-white rm small mb-3 remembered'>Remembered ?</p>
+                <p style={{cursor:"pointer"}} onClick={()=>setIsHaveAccount(true)} className='small mb-3 remembered'>Remembered ?</p>
                 <br />
                 <button onClick={validateForm} type="submit" className="btn btn-outline-danger w-100">Sign Up</button>
             </form>

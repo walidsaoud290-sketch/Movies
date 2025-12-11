@@ -1,14 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../../Header/Header'
 import { BiSearch } from 'react-icons/bi'
 import './HomePage.css'
 import Card from '../../Card/Card'
 const HomePage = () => {
+  const [ListMovies,setMoviesList] =useState([]) 
+
+  const FetchMovie = async()=>{
+    try{
+        const response = await fetch(`https://api.sampleapis.com/movies/action`)
+        if(response.ok){
+          const data = await response.json()
+          console.log(data)
+          setMoviesList(data)
+        }
+        
+    }catch(e){  
+        console.log(e)
+    }
+  }
+  useEffect(()=>{
+      FetchMovie();
+  },[])
  /*  const Fetch = async(search="")=>{
     try{
 
       setIsLoading(true)
-      const response = search ? await fetch(`https://api.sampleapis.com/movies/${film}/?title=${search}`) : await fetch('https://api.sampleapis.com/movies/'+film);
+      const response = search ? await fetch(`https://api.sampleapis.com/movies/${film}/?title=${search}`)
 
       if(response.ok){
         const data = await response.json()
