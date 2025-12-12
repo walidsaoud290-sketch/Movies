@@ -1,5 +1,6 @@
 import React from 'react'
 import './Card.css';
+import { CircleLoader } from 'react-spinners';
 const Card = ({ title, backdrop_path, release_date }) => {
   return (
     <div className="card ">
