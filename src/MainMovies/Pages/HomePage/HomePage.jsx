@@ -38,7 +38,7 @@ const HomePage = () => {
         <br />
         <div className='search-bar col bg-dark'>
           <BiSearch size={30} className='search-icon' />
-          <input type="text" placeholder='Search' />
+          <input type="text" placeholder='Looking for something?' />
         </div>
       </div>
       <div className='movies'>
@@ -47,8 +47,7 @@ const HomePage = () => {
           <p>Trending Movie</p>
           <div className='trending movies-show'>
             {/*All Trending movies in API in Appwrite*/}
-            <Card />
-            {ListMovies.results && ListMovies.results.map((movie) => <Card key={movie.id} backdrop_path={movie.backdrop_path} overview={movie.overview} release_date={movie.release_date} title={movie.title} />)}
+            {ListMovies.results && ListMovies.results.map((movie) => <Card key={movie.id} poster_path={movie.poster_path} overview={movie.overview} release_date={movie.release_date} title={movie.title} />)}
           </div>
         </div>
         <div className="all-movies">
