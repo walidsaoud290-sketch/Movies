@@ -7,15 +7,15 @@ export const context = createContext();
 const Header = () => {
 
   const [image, setImage] = useState('vecteezy_default-profile-account-unknown-icon-black-silhouette_20765399.jpg');
-  
+
   return (
     <context.Provider value={{ image, setImage }}>
       <>
         <nav className="navbar nvBarOrigin navbar-expand-lg rounded ">
           <div className="container-fluid">
-            <a className="navbar-brand text-white" href="/"><img src="logo-nobg.png" style={{width:"200px"}} alt="" /></a>
+            <a className="navbar-brand text-white" href="/"><img src="logo-nobg.png" style={{ width: "40px" }} alt="" /></a>
 
-            <button 
+            <button
               className="navbar-toggler bg-white"
               type="button"
               data-bs-toggle="collapse"
@@ -33,13 +33,13 @@ const Header = () => {
 
               <div className="navbar-nav ms-auto">
                 <div className="nav-item dropdown">
-                  <a 
+                  <a
                     className="nav-link d-flex align-items-center"
                     href="#"
                     role="button"
                     data-bs-toggle="dropdown"
                   >
-                    <img 
+                    <img
                       src={image}
                       alt="Avatar"
                       width="40"
