@@ -30,6 +30,10 @@ app.get('/api/home', async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 app.listen(PORT, 'localhost', () => {
+=======
+app.listen(PORT, () => {
+>>>>>>> 1c51d1faf366dff174017114b60aa0479cfde209
   console.log(`Server listening on http://localhost:${PORT}`);
 });
