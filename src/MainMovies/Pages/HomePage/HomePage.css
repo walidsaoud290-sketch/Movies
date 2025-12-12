@@ -41,10 +41,6 @@
   outline: none;
 }
 
-.search-bar:hover {
-  box-shadow: 0 0 15px rgba(229, 9, 20, 0.6);
-}
-
 /* ===== MOVIES AREA ===== */
 .movies {
   width: 100%;

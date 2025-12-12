@@ -41,7 +41,7 @@ function App() {
       ) : (
           <MainMovies />
         
-      )} */ <MainMovies />}
+      )} */ <MainMovies className='hide-scrollbar' />}
 
     </>
   )
