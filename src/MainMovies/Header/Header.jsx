@@ -13,7 +13,7 @@ const Header = () => {
       <>
         <nav className="navbar nvBarOrigin navbar-expand-lg rounded ">
           <div className="container-fluid">
-            <a className="navbar-brand text-white" href="/">MovieShow</a>
+            <a className="navbar-brand text-white" href="/"><img src="logo-nobg.png" style={{width:"200px"}} alt="" /></a>
 
             <button 
               className="navbar-toggler bg-white"
