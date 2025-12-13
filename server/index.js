@@ -3,6 +3,7 @@ import cors from 'cors';
 
 import { getHomepageCards } from './home.js';
 import { getSearchCards } from './search.js';
+import { getMoviesCards } from './movies.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -23,6 +24,17 @@ app.get('/api/search', async (req, res) => {
 app.get('/api/home', async (req, res) => {
   try {
     const data = await getHomepageCards();
+    res.json({ success: true, results: data });
+  } catch (err) {
+    console.error('Retrieving error:', err);
+    res.status(500).json({ success: false, error: String(err) });
+  }
+});
+
+app.get('/api/movies', async (req, res) => {
+  const page = req.query.p || 1;
+  try {
+    const data = await getMoviesCards(page);
     res.json({ success: true, results: data });
   } catch (err) {
     console.error('Retrieving error:', err);
