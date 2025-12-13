@@ -44,30 +44,21 @@
 }
 
 .search-bar input {
-   flex-grow: 1;
-  height: 44px;
-  padding: 0 16px;
+  flex-grow: 1;
+  height: 100%;
   background-color: transparent;
   color: white;
   border: none;
   outline: none;
   font-size: 16px;
   border-radius: 30px;
-  transition: transform 0.25s ease, letter-spacing 0.25s ease;
-}
-
-.search-bar input:not(:placeholder-shown) {
-  transform: scale(1.03);
-  letter-spacing: 0.5px;
 }
 
 .search-bar input::placeholder {
   color: rgba(255, 255, 255, 0.6);
   transition: 0.3s ease;
 }
-.search-bar input:focus {
-  transform: scale(1.02);
-}
+
 .search-bar input:focus::placeholder {
   opacity: 0.3;
 }
@@ -109,11 +100,12 @@
   background-color: transparent;
 }
 
-.pagination .page-item{
+.pagination .page-item {
   border: 1px solid red;
   border-radius: 5px;
   padding: 5px;
 }
+
 .pagination .page-item:hover {
   background-color: red;
   border: none;
