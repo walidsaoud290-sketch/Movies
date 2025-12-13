@@ -29,6 +29,8 @@ const Header = () => {
                 <li className='nav-item'>Home</li>
                 <li className='nav-item'>Pricing</li>
                 <li className='nav-item'>Features</li>
+                <li className='nav-item'>About</li>
+                <li className='nav-item'>Contact</li>
               </ul>
 
               <div className="navbar-nav ms-auto">

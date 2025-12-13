@@ -80,12 +80,16 @@
   padding-left: 12px;
   margin-bottom: 15px;
 }
+.active{
+  background-color: #e50914;
+}
 
 .movies-show {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(162px, 1fr));
   gap: 20px;
   margin-bottom: 40px;
+  padding:50px
 }
 .loader{
   display: flex;
