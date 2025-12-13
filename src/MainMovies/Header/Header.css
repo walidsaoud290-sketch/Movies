@@ -125,13 +125,7 @@ input.form-control:focus {
 }
 
 /* DROPDOWN RESPONSIVE */
-@media (max-width: 992px) {
-  .dropdown-menu {
-    width: 50% !important;
-    position: relative !important;
-    transform: none !important;
-  }
-}
+
 
 /* AVATAR RESPONSIVE */
 @media (max-width: 576px) {
