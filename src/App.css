@@ -1,15 +1,21 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
   text-align: center;
   background-color: #121212;
+}
+
+.glow-when-hover {
+  transition: box-shadow 0.3s ease;
+}
+
+.glow-when-hover:hover {
+  box-shadow: 0 0 15px rgba(229, 9, 20, 0.6);
 }
 
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -45,6 +51,7 @@
     opacity: 0;
     transform: translateX(-40px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -56,6 +63,7 @@
     opacity: 0;
     transform: translateX(40px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -67,6 +75,7 @@
     opacity: 0;
     transform: translateX(-40px) scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: translateX(0) scale(1);
@@ -78,6 +87,7 @@
     opacity: 0;
     transform: translateX(40px) scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: translateX(0) scale(1);
@@ -85,13 +95,17 @@
 }
 
 .ForgetPage {
-  min-height: 100vh;                          /* Full screen height */                 /* Your blue background */
+  min-height: 100vh;
+  /* Full screen height */
+  /* Your blue background */
   background-image: url("/mnt/data/Capture d'écran 2025-11-24 232604.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   display: flex;
   justify-content: center;
-  align-items: flex-start;                    /* To keep the card on top */
-  padding-top: 40px;                          /* Space from the top */
+  align-items: flex-start;
+  /* To keep the card on top */
+  padding-top: 40px;
+  /* Space from the top */
 }
