@@ -1,13 +1,14 @@
 import express from 'express';
 import cors from 'cors';
+
 import { getHomepageCards } from './home.js';
+import { getSearchCards } from './search.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 
-/*
 app.get('/api/search', async (req, res) => {
   const q = req.query.q || '';
   try {
@@ -18,7 +19,6 @@ app.get('/api/search', async (req, res) => {
     res.status(500).json({ success: false, error: String(err) });
   }
 });
-*/
 
 app.get('/api/home', async (req, res) => {
   try {

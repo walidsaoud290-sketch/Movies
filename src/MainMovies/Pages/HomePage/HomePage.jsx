@@ -7,8 +7,8 @@ import { CircleLoader } from 'react-spinners'
 import Footer from '../../FooterFolder/Footer'
 const HomePage = () => {
   const [ListMovies, setMoviesList] = useState([])
-  const [isLoading,setIsLoading] = useState(false);
-  const [page,setPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
+  const [page, setPage] = useState(1);
   //eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwM2VkNTI5MjkyN2Y3MjlmNWRmYWJiMmI1YjU0NzUxMyIsIm5iZiI6MTc1NTU0OTE3Mi41MDQ5OTk5LCJzdWIiOiI2OGEzOGRmNDQxNTM1YzEwYmM4M2I2NjIiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.tjl7XiOV5wEYFZpgbScwAy4pa0vaM4_ciyAOC00ZMEA
   const options = {
     method: 'GET',
@@ -30,7 +30,7 @@ const HomePage = () => {
 
     } catch (e) {
       console.log(e)
-    }finally{
+    } finally {
       setIsLoading(false);
     }
   }
@@ -40,17 +40,14 @@ const HomePage = () => {
 
   return (
     <div className='home'>
-      <div className='menu row'>
-        {/*         <img src="movie (1).jpg" className='img1 col' alt="" /> */}
-        <br />
+      <div className='menu'>
         <div className='search-bar col bg-dark'>
           <BiSearch size={30} className='search-icon' />
-          <input type="text" placeholder='Search your movie' className='w-50' />
+          <input type="text" placeholder='Search' className='w-50' />
         </div>
       </div>
       <div className='movies'>
-        <br />
-        {isLoading && <div className='loader'><CircleLoader color='white' size={100}/></div>}
+        {isLoading && <div className='loader'><CircleLoader color='white' size={100} /></div>}
         <div className="trending-movies">
           <p>Trending Movie</p>
           <div className='trending movies-show'>
@@ -59,18 +56,18 @@ const HomePage = () => {
         </div>
         <div className="all-movies">
           <p>All movies</p>
-          <div className='all movies-show row '>
+          <div className='all movies-show'>
             {ListMovies.results && ListMovies.results.map((movie) => <Card key={movie.id} poster_path={movie.poster_path} overview={movie.overview} release_date={movie.release_date} title={movie.title} />)}
           </div>
         </div>
         <nav aria-label="Page navigation example">
           <ul className="pagination  d-flex justify-content-center">
-            <li className="page-item" onClick={()=>setPage(prev=>prev-1==0 ? 1 : prev-1)}><a className="page-link" href="#" >Previous</a></li>
-            <li className="page-item active" onClick={()=>setPage(1)}><a className="page-link" href="#">1</a></li>
-            <li className="page-item" onClick={()=>setPage(prev=>prev-1==0 ? 1 : prev-1)}><a className="page-link" href="#">2</a></li>
+            <li className="page-item" onClick={() => setPage(prev => prev - 1 == 0 ? 1 : prev - 1)}><a className="page-link" href="#" >Previous</a></li>
+            <li className="page-item active" onClick={() => setPage(1)}><a className="page-link" href="#">1</a></li>
+            <li className="page-item" onClick={() => setPage(prev => prev - 1 == 0 ? 1 : prev - 1)}><a className="page-link" href="#">2</a></li>
             <li className="page-item"><a className="page-link" href="#">3</a></li>
             <li className="page-item"><a className="page-link" href="#">Next</a></li>
-        </ul>
+          </ul>
         </nav>
       </div>
     </div>

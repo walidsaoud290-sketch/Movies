@@ -1,10 +1,9 @@
 import React from 'react'
 import './Card.css';
 
-const Card = ({className, title,poster_path, backdrop_path, release_date }) => {
+const Card = ({ title, poster_path, backdrop_path, release_date }) => {
   return (
-    <div className={`card ${className}`}>
-      {/* just for testing -- use backdrop_path instead */}
+    <div className={`card`}>
       <img src={`https://image.tmdb.org/t/p/w200${poster_path}`} className="card-img" alt="..." />
       <div className="card-gradient"></div>
       <div className="card-body">
