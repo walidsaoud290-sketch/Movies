@@ -46,6 +46,8 @@
 .search-bar input {
   flex-grow: 1;
   height: 100%;
+  flex-grow: 1;
+  height: 100%;
   background-color: transparent;
   color: white;
   border: none;
@@ -57,6 +59,7 @@
   color: rgba(255, 255, 255, 0.6);
   transition: 0.3s ease;
 }
+
 
 .search-bar input:focus::placeholder {
   opacity: 0.3;
@@ -100,32 +103,34 @@
 }
 
 .pagination .page-item {
-  border: 1px solid red;
-  border-radius: 5px;
-  padding: 5px;
-}
-
-.pagination .page-item:hover {
-  background-color: red;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.pagination .page-item .page-link {
-  color: white;
-  border: none;
-  background-color: transparent;
-}
-
-.pagination .page-item .page-link:hover {
-  color: black;
-  border: none;
-  background-color: transparent;
-}
+  .pagination .page-item {
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 5px;
+  }
 
 
-.page-item {
-  cursor: pointer;
+  .pagination .page-item:hover {
+    background-color: red;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
 
-}
+  .pagination .page-item .page-link {
+    color: white;
+    border: none;
+    background-color: transparent;
+  }
+
+  .pagination .page-item .page-link:hover {
+    color: black;
+    border: none;
+    background-color: transparent;
+  }
+
+
+  .page-item {
+    cursor: pointer;
+
+  }
