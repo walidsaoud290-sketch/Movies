@@ -5,7 +5,6 @@ import AppMovies from '../AppMovies';
 import {Route, Router, Routes } from 'react-router-dom';
 import HomePage from '../Pages/HomePage/HomePage';
 import Pricing from '../Pages/Pricing/Pricing';
-import Features from '../Pages/Features/Features';
 import Header from '../Header/Header';
 
 const MainMovies = ({user, dateBirth}) => {

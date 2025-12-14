@@ -6,11 +6,7 @@ import LogIn from './Formulaires/LogInFolder/logIn.jsx';
 import SignIn from './Formulaires/SignInFolder/SignIn.jsx';
 import ForgetPassword from './Formulaires/ForgetPasswordFolder/ForgetPassword.jsx';
 import MainMovies from './MainMovies/Main/MainMovies.jsx';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import AppMovies from './MainMovies/AppMovies.jsx';
-import HomePage from './MainMovies/Pages/HomePage/HomePage.jsx';
-import Pricing from './MainMovies/Pages/Pricing/Pricing.jsx';
-import Features from './MainMovies/Pages/Features/Features.jsx';
+
 export const context = createContext();
 
 function App() {

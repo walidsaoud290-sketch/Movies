@@ -8,7 +8,7 @@ const Footer = () => {
 
           {/* Brand */}
           <div className="col-md-4 mb-4">
-            <h3 className="footer-title"><img src="Logo-nobg.png" style={{width:"50px"}} alt="" /> MovieZone</h3>
+            <h3 className="footer-title"><img src="Logo-nobg.png" style={{width:"50px"}} alt="" /> MovieStream</h3>
             <p className="footer-text">
               Discover, search and enjoy the best movies from around the world.
             </p>
@@ -27,7 +27,7 @@ const Footer = () => {
 
           {/* Newsletter */}
           <div className="col-md-4 mb-4">
-            <h5 className="footer-subtitle">News letter</h5>
+            <h5 className="footer-subtitle">New letters</h5>
             <p className="footer-text">Get movie updates directly in your inbox.</p>
             <div className="d-flex gap-2">
               <button className="btn btn-outline-danger">Subscribe</button>
@@ -37,7 +37,7 @@ const Footer = () => {
         </div>
 
         <hr className="footer-divider" />
-        
+
           <div className="apps d-flex gap-3 mb-3 justify-centent-center">
             <div className="app-store">
               <img src="App-store.png" alt="" />
