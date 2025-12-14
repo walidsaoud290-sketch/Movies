@@ -42,6 +42,7 @@ app.get('/api/movies', async (req, res) => {
   }
 });
 
-app.listen(PORT, 'localhost', () => {
-  console.log(`Server listening on http://localhost:${PORT}`);
+const server = app.listen(PORT, 'localhost', () => {
+  const host = server.address().address === '::1' ? 'localhost' : server.address().address;
+  console.log(`Server listening on http://${host}:${server.address().port}`);
 });

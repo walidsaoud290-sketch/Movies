@@ -30,7 +30,6 @@ const HomePage = () => {
         console.log(data);
         setMovieList(data)
       }
-
     } catch (e) {
       console.log(e)
     } finally {
@@ -52,7 +51,6 @@ const HomePage = () => {
         console.log(data)
         setSearchList(data)
       }
-
     } catch (e) {
       console.log(e)
     } finally {
