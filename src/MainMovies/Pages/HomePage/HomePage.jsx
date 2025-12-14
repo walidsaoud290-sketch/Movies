@@ -9,7 +9,7 @@ import SearchBar from '../../../components/SearchBar/SearchBar'
 
 const HomePage = () => {
   const [movieList, setMovieList] = useState({ results: { data: [], meta: {} } });
-  const [searchList, setSearchList] = useState({ results: { data: [], meta: {} } });
+  const [searchList, setSearchList] = useState([]);
   const inFlight = useRef(new Set());
 
   const [isLoading, setIsLoading] = useState(false);
@@ -93,7 +93,7 @@ const HomePage = () => {
           <p>Trending Movie</p>
           {isLoading && <div className='loader'><FadeLoader color='white' size={100} /></div>}
           <div className='trending movies-show'>
-            {searchList.results?.data?.map((movie, idx) => <Card key={idx} title={movie.title} poster_path={movie.poster_path} link={movie.link} />)}
+            {searchList.results?.map((movie, idx) => <Card key={idx} title={movie.title} poster_path={movie.poster_path} link={movie.link} />)}
           </div>
         </div>
         <div className="all-movies">
