@@ -6,6 +6,7 @@
 .footer-title {
   color: #e50914;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .footer-subtitle {
