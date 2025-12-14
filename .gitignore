@@ -24,8 +24,4 @@ dist-ssr
 *.sw?
 
 # Custom
-Card.psd
-images.jpg
-Picture1.png
-Presentation1.pptx
-test.html
+.ignored
