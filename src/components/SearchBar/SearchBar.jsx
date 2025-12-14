@@ -3,9 +3,8 @@ import './SearchBar.css'
 
 import { BiSearch } from 'react-icons/bi'
 
-export default function SearchBar() {
-    const [query, setQuery] = useState("");
-
+export default function SearchBar({setQuery}) {
+    
     return (
         <>
             <div className='search-bar col bg-dark'>

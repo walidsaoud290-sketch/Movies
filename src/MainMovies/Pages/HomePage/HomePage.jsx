@@ -2,21 +2,19 @@ import './HomePage.css'
 
 import { useEffect, useState, useRef } from 'react'
 import { FadeLoader } from 'react-spinners'
-import { useDebounce } from 'react-use'
+import { useDebounce } from 'use-debounce'
 
 import Card from '../../../components/Card/Card'
 import SearchBar from '../../../components/SearchBar/SearchBar'
+import Footer from '../../FooterFolder/Footer'
 
 const HomePage = () => {
   const [movieList, setMovieList] = useState({ results: { data: [], meta: {} } });
   const [searchList, setSearchList] = useState([]);
   const inFlight = useRef(new Set());
-
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
-
-  const [DebounseSearchTerm, setDebounceSearchTerm] = useState('');
 
   const FetchMovie = async (page = 1) => {
     const key = `movies:p=${page}`;
@@ -70,28 +68,27 @@ const HomePage = () => {
     })
   }
 
-  /* useDebounce(
-  () => {
-    setDebounceSearchTerm(searchTerm)
-  },
-  500, 
-  [searchTerm]
-) */
-
   useEffect(() => {
     FetchMovie(page)
   }, [page])
 
 
+  useEffect(()=>{
+      const handler = setTimeout(() => {
+        HandleChange()
+  }, 500);
+
+  return () => clearTimeout(handler);
+  },[query])
+
   return (
     <div className='home'>
       <div className='menu mb-4'>
-        <SearchBar />
+        <SearchBar setQuery={setQuery}/>
       </div>
       <div className='movies'>
         <div className="trending-movies">
           <p>Trending Movie</p>
-          {isLoading && <div className='loader'><FadeLoader color='white' size={100} /></div>}
           <div className='trending movies-show'>
             {searchList.results?.map((movie, idx) => <Card key={idx} title={movie.title} poster_path={movie.poster_path} link={movie.link} />)}
           </div>
@@ -113,6 +110,7 @@ const HomePage = () => {
           </ul>
         </nav>
       </div>
+      <Footer />
     </div>
   )
 }
