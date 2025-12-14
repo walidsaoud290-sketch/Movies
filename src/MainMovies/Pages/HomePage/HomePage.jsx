@@ -94,7 +94,7 @@ const HomePage = () => {
           </div>
         </div>
         <div className="all-movies">
-          <p>All movies{movieList.results?.meta && ` (${page}/${movieList.results.meta.max_pages})`}</p>
+          <p>All movies{movieList.results?.meta && ` ${movieList.results.meta.max_pages===undefined ? "":"("+page+"/"+movieList.results.meta.max_pages+")"}`}</p>
           {isLoading && <div className='loader'><FadeLoader color='white' size={100} /></div>}
           <div className='all movies-show'>
             {movieList.results?.data?.map((movie, idx) => <Card key={idx} title={movie.title} poster_path={movie.poster_path} link={movie.link} />)}
