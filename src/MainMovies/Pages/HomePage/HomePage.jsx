@@ -134,7 +134,7 @@ const HomePage = () => {
 </div>
 
       {/* ALL MOVIES */}
-      <div className="all-movies">
+      <div className="all-movies mt-5">
         <div className="menu mb-4">
       <SearchBar setQuery={setQuery} />
     </div>
