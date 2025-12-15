@@ -86,22 +86,55 @@ const HomePage = () => {
   <div className="home">
     <div className="movies">
 
-      {/* TRENDING */}
       <div className="trending-movies">
-        <div className="section-title">
-          <p>Trending Movie</p>
+  <div className="section-title">
+    <p>Trending Movie</p>
+  </div>
+
+  <div
+    id="trendingCarousel"
+    className="carousel slide carousel-fade"
+    data-bs-ride="carousel"
+    data-bs-interval="1000" // 1 second
+  >
+    <div className="carousel-inner">
+      {TrendingMovieList.map((movie, idx) => (
+        <div
+          key={idx}
+          className={`carousel-item ${idx === 0 ? "active" : ""}`}
+        >
+          <img
+            src={movie.poster_path}
+            className="d-block w-100"
+            alt={movie.title}
+            height={"400px"}
+            width={"500px"}
+          />
         </div>
-        <div className="trending movies-show auto-scroll">
-    {TrendingMovieList.map((movie, idx) => (
-      <Card
-        key={idx}
-        title={movie.title}
-        poster_path={movie.poster_path}
-        link={movie.link}
-      />
-    ))}
-          </div>
-      </div>
+      ))}
+    </div>
+
+    <button
+      className="carousel-control-prev"
+      type="button"
+      data-bs-target="#trendingCarousel"
+      data-bs-slide="prev"
+    >
+      <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span className="visually-hidden">Previous</span>
+    </button>
+
+    <button
+      className="carousel-control-next"
+      type="button"
+      data-bs-target="#trendingCarousel"
+      data-bs-slide="next"
+    >
+      <span className="carousel-control-next-icon" aria-hidden="true"></span>
+      <span className="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
 
       {/* ALL MOVIES */}
       <div className="all-movies">
