@@ -16,22 +16,22 @@ const Header = () => {
         <nav className="navbar nvBarOrigin navbar-expand-lg rounded">
           <div className="container-fluid">
             <a className="navbar-brand text-white" href="/">
-              <img src="logo-nobg.png" style={{ width: '40px' }} alt="" />
+              <img src="src/assets/side_simplified_600px.png" style={{ height: '40px' }} alt="" />
             </a>
 
-            <button
+            {/* <button
               className="navbar-toggler bg-white"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#navbarNav"
             >
               <span className="navbar-toggler-icon"></span>
-            </button>
-            
+            </button> */}
+
             <div className="collapse navbar-collapse my-6" id="navbarNav">
-              <ul className="navbar-nav nv">
-               <Link className='l' to={"/"}> <li className="nav-item">Home</li></Link>
-               <Link className='l' to={"/Pricing"}> <li className="nav-item">Pricing</li></Link>
+              <ul className="navbar-nav ms-auto">
+                <Link className='l' to={"/"}> <li className="nav-item">Home</li></Link>
+                <Link className='l' to={"/Pricing"}> <li className="nav-item">Pricing</li></Link>
                 <Link className='l' to={"/About"}> <li className="nav-item">About</li></Link>
                 <Link className='l' to={"/Contact"}> <li className="nav-item">Contact</li></Link>
               </ul>

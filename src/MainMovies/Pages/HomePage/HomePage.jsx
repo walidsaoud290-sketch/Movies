@@ -70,46 +70,44 @@ const HomePage = () => {
     FetchMovie(page)
   }, [page])
 
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      HandleChange()
+    }, 500);
 
-  useEffect(()=>{
-      const handler = setTimeout(() => {
-        HandleChange()
-  }, 500);
-
-  return () => clearTimeout(handler);
-  },[query])
+    return () => clearTimeout(handler);
+  }, [query])
 
   return (
     <div className='home'>
       <div className='menu mb-4'>
-        <SearchBar setQuery={setQuery}/>
+        <SearchBar setQuery={setQuery} />
       </div>
       <div className='movies'>
         <div className="trending-movies">
-          <p>Trending Movie</p>
+          <div className='section-title'>
+            <p>Trending Movie</p>
+          </div>
           <div className='trending movies-show'>
             {searchList.results?.map((movie, idx) => <Card key={idx} title={movie.title} poster_path={movie.poster_path} link={movie.link} />)}
           </div>
         </div>
         <div className="all-movies">
-          <p>All movies{movieList.results?.meta && ` ${movieList.results.meta.max_pages===undefined ? "":"("+page+"/"+movieList.results.meta.max_pages+")"}`}</p>
+          <div className='section-title'>
+            <div className="page-item" onClick={() => setPage(prev => prev - 1 <= 0 ? 1 : prev - 1)}><a className="page-link" href="#" >&lt;</a></div>
+            <div className="page-item" onClick={() => setPage(prev => prev - 10 <= 0 ? 1 : prev - 10)}><a className="page-link" href="#" >&lt;&lt;</a></div>
+            <p>All movies{movieList.results?.meta && ` ${movieList.results.meta.max_pages === undefined ? "" : "(" + page + "/" + movieList.results.meta.max_pages + ")"}`}</p>
+            <div className="page-item" onClick={() => setPage(prev => prev + 10 > movieList.results.meta.max_pages ? movieList.results.meta.max_pages : prev + 10)}><a className="page-link" href="#" >&gt;&gt;</a></div>
+            <div className="page-item" onClick={() => setPage(prev => prev + 1 > movieList.results.meta.max_pages ? movieList.results.meta.max_pages : prev + 1)}><a className="page-link" href="#" >&gt;</a></div>
+          </div>
           {isLoading && <div className='loader'><FadeLoader color='white' size={100} /></div>}
           <div className='all movies-show'>
             {movieList.results?.data?.map((movie, idx) => <Card key={idx} title={movie.title} poster_path={movie.poster_path} link={movie.link} />)}
           </div>
         </div>
-        <nav aria-label="Page navigation example">
-          <ul className="pagination  d-flex justify-content-center">
-            <li className="page-item" onClick={() => setPage(prev => prev - 1 == 0 ? 1 : prev - 1)}><a className="page-link" href="#" >&lt;</a></li>
-            <li className="page-item" onClick={() => setPage(1)}><a className="page-link" href="#">1</a></li>
-            <li className="page-item" onClick={() => setPage(2)}><a className="page-link" href="#">2</a></li>
-            <li className="page-item" onClick={() => setPage(3)}><a className="page-link" href="#">3</a></li>
-            <li className="page-item" onClick={() => setPage(prev => prev + 1)}><a className="page-link" href="#">&gt;</a></li>
-          </ul>
-        </nav>
       </div>
       <Footer />
-    </div>
+    </div >
   )
 }
 

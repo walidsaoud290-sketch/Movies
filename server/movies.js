@@ -34,7 +34,11 @@ export async function getMoviesCards(page) {
         })
     });
 
-    MovieCards.meta.max_pages = parseInt(pagination.children().last().children().first().attr('href').split('/')[3]);
+    const max_pages = pagination.children().last().children().first().attr('href').split('/')[3];
+    if (max_pages != null)
+        MovieCards.meta.max_pages = parseInt(pagination.children().last().children().first().attr('href').split('/')[3]);
+    else
+        MovieCards.meta.max_pages = page;
 
     return MovieCards;
 }
