@@ -1,0 +1,116 @@
+.pricing-pure {
+  background: radial-gradient(circle at top, #0c0c0c, #000);
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.pricing-title {
+  font-size: 2.6rem;
+  margin-bottom: 10px;
+}
+
+.pricing-subtitle {
+  color: #aaa;
+  margin-bottom: 60px;
+}
+
+/* GRID */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* ITEM */
+.pricing-item {
+  background: linear-gradient(180deg, #141414, #0a0a0a);
+  border-radius: 22px;
+  padding: 45px 30px;
+  position: relative;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: 0 0 0 rgba(220, 53, 69, 0);
+  animation: popRise 0.8s ease forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+@keyframes popRise {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    box-shadow: 0 0 0 rgba(220, 53, 69, 0);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 0 20px rgba(220, 53, 69, 0.3);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 0 40px rgba(220, 53, 69, 0.4);
+  }
+}
+
+.pricing-item:hover {
+   transform: translateY(-6px);
+  box-shadow: 0 0 50px rgba(220, 53, 69, 0.5);
+}
+
+/* FEATURED */
+.pricing-featured {
+  outline: 2px solid #dc3545;
+  box-shadow: 0 0 60px rgba(220, 53, 69, 0.45);
+}
+
+.pricing-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #dc3545;
+  padding: 6px 14px;
+  border-radius: 14px;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+}
+
+/* PRICE */
+.pricing-price {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 15px 0;
+}
+
+/* LIST */
+.pricing-item ul {
+  list-style: none;
+  padding: 0;
+  margin: 30px 0;
+  color: #ccc;
+}
+
+.pricing-item ul li {
+  margin-bottom: 10px;
+}
+
+/* BUTTON */
+.pricing-item button {
+  background: transparent;
+  border: 1px solid #dc3545;
+  color: #fff;
+  padding: 12px 0;
+  border-radius: 30px;
+  width: 100%;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.pricing-item button:hover {
+  background: #dc3545;
+  transform: scale(1.03);
+}
+
+.btn-primary {
+  background: #dc3545;
+}

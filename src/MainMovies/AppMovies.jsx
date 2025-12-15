@@ -6,7 +6,7 @@ const AppMovies = () => {
   return (
     <>
       <Header/>
-      <HomePage />
+      <Outlet />
     </>
   )
 }

@@ -2,8 +2,6 @@ import './HomePage.css'
 
 import { useEffect, useState, useRef } from 'react'
 import { FadeLoader } from 'react-spinners'
-import { useDebounce } from 'use-debounce'
-
 import Card from '../../../components/Card/Card'
 import SearchBar from '../../../components/SearchBar/SearchBar'
 import Footer from '../../FooterFolder/Footer'

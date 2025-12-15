@@ -10,23 +10,6 @@ const Header = () => {
     'vecteezy_default-profile-account-unknown-icon-black-silhouette_20765399.jpg'
   );
 
-  useEffect(() => {
-    const fixScroll = () => {
-      document.body.style.paddingRight = '0px';
-      document.body.style.overflow = '';
-    };
-
-    document.addEventListener('show.bs.dropdown', fixScroll);
-    document.addEventListener('shown.bs.dropdown', fixScroll);
-    document.addEventListener('hide.bs.dropdown', fixScroll);
-
-    return () => {
-      document.removeEventListener('show.bs.dropdown', fixScroll);
-      document.removeEventListener('shown.bs.dropdown', fixScroll);
-      document.removeEventListener('hide.bs.dropdown', fixScroll);
-    };
-  }, []);
-
   return (
     <context.Provider value={{ image, setImage }}>
       <>
@@ -44,13 +27,13 @@ const Header = () => {
             >
               <span className="navbar-toggler-icon"></span>
             </button>
-
+            
             <div className="collapse navbar-collapse my-6" id="navbarNav">
               <ul className="navbar-nav nv">
-                <li className="nav-item">Home</li>
-                <li className="nav-item">Pricing</li>
-                <li className="nav-item">About</li>
-                <li className="nav-item">Contact</li>
+               <Link className='l' to={"/"}> <li className="nav-item">Home</li></Link>
+               <Link className='l' to={"/Pricing"}> <li className="nav-item">Pricing</li></Link>
+                <Link className='l' to={"/About"}> <li className="nav-item">About</li></Link>
+                <Link className='l' to={"/Contact"}> <li className="nav-item">Contact</li></Link>
               </ul>
 
               <div className="navbar-nav ms-auto">

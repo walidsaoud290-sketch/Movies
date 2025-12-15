@@ -5,7 +5,9 @@
 .nvB {
   margin-bottom: 30px;
 }
-
+.l{
+  text-decoration: none;
+}
 /* NAVBAR */
 .nvBarOrigin {
   background: #0d0d0d;
