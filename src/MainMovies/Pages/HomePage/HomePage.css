@@ -18,6 +18,25 @@
   justify-content: center;
 }
 
+.trending.movies-show {
+  display: flex;
+  gap: 23px;
+  scrollbar-width: none;
+  padding-bottom: 10px;
+}
+
+.trending.movies-show::-webkit-scrollbar {
+  display: none;
+}
+
+.auto-scroll {
+  scroll-behavior: smooth;
+}
+
+/* Pause scrolling visually */
+.trending.movies-show:hover {
+  cursor: grab;
+}
 
 
 /* ===== MOVIES AREA ===== */

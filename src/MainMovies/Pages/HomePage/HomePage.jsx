@@ -8,10 +8,12 @@ import Footer from '../../FooterFolder/Footer'
 
 const HomePage = () => {
   const [movieList, setMovieList] = useState([]);
+  const [listSearchMovie,setListSearchMovie] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
   const [TrendingMovieList,setTrendingMovieList] = useState([])
+
 
   const FetchMovie = async (page = 1) => {
     try {
@@ -37,7 +39,7 @@ const HomePage = () => {
   }, [movieList]);
 
 
-  const getRandomMovies = (movies = [], count = 5) => {
+  const getRandomMovies = (movies = [], count = 10) => {
   if (!movies.length) return [];
 
   const shuffled = [...movies].sort(() => 0.5 - Math.random());
@@ -45,16 +47,13 @@ const HomePage = () => {
   };
 
   const FetchSearchQuery = async (query) => {
-    if (!query)
-      FetchMovie(1);
-    else{
     try {
       setIsLoading(true);
       const response = await fetch("http://localhost:3000/api/search?q=" + query);
       if (response.ok) {
         const data = await response.json()
         console.log(data)
-        setMovieList(data)
+        setListSearchMovie(data.results)
       }
     } catch (e) {
       console.log(e)
@@ -62,19 +61,26 @@ const HomePage = () => {
       setIsLoading(false);
     }
   }
-  }
 
   useEffect(() => {
     FetchMovie(page)
   }, [page])
 
+
   useEffect(() => {
-    const handler = setTimeout(() => {
+    if(!query ){
+      FetchMovie(1);
+      setListSearchMovie([])
+      return
+    }
+          const handler = setTimeout(() => {
       FetchSearchQuery(query);
     }, 500);
-
     return () => clearTimeout(handler);
+
   }, [query])
+
+
 
   return (
   <div className="home">
@@ -85,7 +91,7 @@ const HomePage = () => {
         <div className="section-title">
           <p>Trending Movie</p>
         </div>
-        <div className="trending movies-show">
+        <div className="trending movies-show auto-scroll">
     {TrendingMovieList.map((movie, idx) => (
       <Card
         key={idx}
@@ -94,7 +100,7 @@ const HomePage = () => {
         link={movie.link}
       />
     ))}
-  </div>
+          </div>
       </div>
 
       {/* ALL MOVIES */}
@@ -162,7 +168,12 @@ const HomePage = () => {
         )}
 
         <div className="all movies-show">
-          {movieList?.results?.data?.map((movie, idx) => (
+          {listSearchMovie.length>0 ? listSearchMovie.map((movie,idx)=>(<Card
+              key={idx}
+              title={movie.title}
+              poster_path={movie.poster_path}
+              link={movie.link}
+            />)):movieList?.results?.data?.map((movie, idx) => (
             <Card
               key={idx}
               title={movie.title}
