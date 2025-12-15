@@ -26,10 +26,20 @@
 }
 
 /* TITLE STYLE */
-.movies p {
+.section-title {
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 20px;
+  padding: 0 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    margin: 0;
+    flex-grow: 1;
+  }
 }
 
 .active {
@@ -52,38 +62,28 @@
   width: 100%;
 }
 
-.pagination {
-  margin-bottom: 0;
-  background-color: transparent;
-}
-
-.pagination .page-item {
+.page-item {
   border: 1px solid red;
   border-radius: 5px;
-  padding: 5px;
+  padding: 0;
+  height: 100%;
+  width: 40px;
 }
 
-
-.pagination .page-item:hover {
+.page-item:hover {
   background-color: red;
-  border: none;
   cursor: pointer;
   transition: 0.3s ease;
 }
 
-.pagination .page-item .page-link {
+.page-item .page-link {
   color: white;
   border: none;
   background-color: transparent;
 }
 
-.pagination .page-item .page-link:hover {
-  color: black;
+.page-item .page-link {
+  color: white;
   border: none;
   background-color: transparent;
-}
-
-
-.page-item {
-  cursor: pointer;
 }
