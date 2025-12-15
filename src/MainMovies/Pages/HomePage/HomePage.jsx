@@ -1,5 +1,4 @@
 import './HomePage.css'
-
 import { useEffect, useState, useRef } from 'react'
 import { FadeLoader } from 'react-spinners'
 import Card from '../../../components/Card/Card'
@@ -7,13 +6,13 @@ import SearchBar from '../../../components/SearchBar/SearchBar'
 import Footer from '../../FooterFolder/Footer'
 
 const HomePage = () => {
+
   const [movieList, setMovieList] = useState([]);
   const [listSearchMovie,setListSearchMovie] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
   const [TrendingMovieList,setTrendingMovieList] = useState([])
-
 
   const FetchMovie = async (page = 1) => {
     try {
@@ -73,14 +72,12 @@ const HomePage = () => {
       setListSearchMovie([])
       return
     }
-          const handler = setTimeout(() => {
+      const handler = setTimeout(() => {
       FetchSearchQuery(query);
     }, 500);
     return () => clearTimeout(handler);
 
   }, [query])
-
-
 
   return (
   <div className="home">
