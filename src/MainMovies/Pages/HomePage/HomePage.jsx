@@ -93,7 +93,7 @@ const HomePage = () => {
 
   <div
     id="trendingCarousel"
-    className="carousel slide carousel-fade"
+    className="carousel slide"
     data-bs-ride="carousel"
     data-bs-interval="1000" // 1 second
   >
