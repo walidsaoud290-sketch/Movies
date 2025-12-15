@@ -64,9 +64,10 @@
 
     /* Target the glow specifically on hover */
     .card-glow {
-        opacity: 0.6;
+        opacity: 1;
+
         /* Only show it now */
-        filter: blur(20px) saturate(1.5) brightness(2);
+        filter: blur(30px) saturate(1.5) brightness(2);
     }
 
     .card-body {

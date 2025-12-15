@@ -6,7 +6,7 @@ const BasicForm = ({id}) => {
         <div className='modal-dialog'>
             <div className="modal-content">
                 <div className="modal-header">
-                    <h5 className="modal-title">Basic Plan Signup</h5>
+                    <h5 className="modal-title text-center">Basic Plan Signup</h5>
                     <button type="button" className="btn-close bg-light position-absolute end-0 top-0 m-2" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div className="modal-body">
@@ -36,7 +36,6 @@ const BasicForm = ({id}) => {
                     <button type="submit" className="btn btn-outline-danger w-100 mt-2">
                       Submit
                     </button>
-                    <button className='btn btn-danger' data-bs-dismiss="modal" aria-label="Close">close</button>
                   </form>
                 </div>
             </div>
