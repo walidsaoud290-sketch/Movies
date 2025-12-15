@@ -6,7 +6,7 @@ const EliteForm = ({id}) => {
         <div className='modal-dialog'>
             <div className="modal-content">
                 <div className="modal-header">
-                    <h5 className="modal-title">Elite Plan Signup</h5>
+                    <h5 className="modal-title text-center">Elite Plan Signup</h5>
                     <button type="button" className="btn-close bg-light position-absolute end-0 top-0 m-2" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div className="modal-body">
@@ -33,7 +33,7 @@ const EliteForm = ({id}) => {
                       value="Elite"
                       readOnly
                     />
-                    <button type="submit" className="btn btn-danger w-100 mt-2">
+                    <button type="submit" className="btn btn-outline-danger w-100 mt-2">
                       Submit
                     </button>
                   </form>
