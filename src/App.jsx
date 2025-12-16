@@ -19,7 +19,7 @@ function App() {
 
   return (
     <>
-      {/* {!isFormValid ? (
+      {!isFormValid ? (
         <context.Provider value={{
           user, setUser,
           HaveAccount, setIsHaveAccount,
@@ -35,13 +35,10 @@ function App() {
             <div className='ForgetPage'><ForgetPassword /></div>
           )}
         </context.Provider>
-      ) : ( */}
-      <MainMovies user={user} dateBirth={dateBirth} />
-      {/* 
-      )
-      } */}
-    </>
-  )
-}
+      ) : (
+      <MainMovies user={user} dateBirth={dateBirth} setIsFormValid={setIsFormValid}/>
+  )}
+  </>
+  )}
 
-export default App
+export default App;

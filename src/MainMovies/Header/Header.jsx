@@ -1,11 +1,12 @@
 import { createContext, useState, useEffect } from 'react';
 import './Header.css';
 import ModalUser from '../Pages/ModalUser/ModalUser';
-import { Link } from 'react-router-dom';
+import { Link ,useNavigate} from 'react-router-dom';
+import Logout from '../Pages/LogoutModal/Logout';
 
 export const context = createContext();
 
-const Header = () => {
+const Header = ({setIsFormValid}) => {
   const [image, setImage] = useState(
     'vecteezy_default-profile-account-unknown-icon-black-silhouette_20765399.jpg'
   );
@@ -68,7 +69,10 @@ const Header = () => {
                       <hr className="dropdown-divider" />
                     </li>
                     <li>
-                      <button className="dropdown-item text-danger">
+                      <button className="dropdown-item text-danger"
+                      data-bs-toggle="modal"
+                      data-bs-target="#logoutModal"
+                      >
                         Logout
                       </button>
                     </li>
@@ -78,7 +82,7 @@ const Header = () => {
             </div>
           </div>
         </nav>
-
+        <Logout id="logoutModal" setIsFormValid={setIsFormValid}/>
         <ModalUser id="modalUser" />
       </>
     </context.Provider>
