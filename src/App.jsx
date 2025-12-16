@@ -6,6 +6,7 @@ import LogIn from './Formulaires/LogInFolder/logIn.jsx';
 import SignIn from './Formulaires/SignInFolder/SignIn.jsx';
 import ForgetPassword from './Formulaires/ForgetPasswordFolder/ForgetPassword.jsx';
 import MainMovies from './MainMovies/Main/MainMovies.jsx';
+import HapBirthday from './MainMovies/HappyBirthday/HapBirthday.jsx';
 
 export const context = createContext();
 
@@ -34,11 +35,11 @@ function App() {
             <div className='ForgetPage'><ForgetPassword /></div>
           )}
         </context.Provider>
-      ) : (
-          <MainMovies />
-        
-      )} */ <MainMovies className='hide-scrollbar' />}
-
+      ) : ( */}
+      <MainMovies user={user} dateBirth={dateBirth} />
+      {/* 
+      )
+    } */}
     </>
   )
 }

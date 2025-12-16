@@ -36,7 +36,3 @@
 }
 
 /* Optional: subtle hover glow on container */
-.about-container:hover {
-  box-shadow: 0 0 40px rgba(220, 53, 69, 0.3);
-  border-radius: 12px;
-}

@@ -31,13 +31,13 @@ const LogIn = () => {
 
   return (
     <>
-    <div className="LogIn py-5">
+    <div className="LogIn p-5 row col-sm-12 d-flex justify-content-center align-items-center">
       <div className="row ">
-        <div className="col-md-6 col-sm-12 mb-4">
-          <Presentation />
+        <div className="col-md-6 mb-4">
+          <Presentation etat={false}/>
         </div>
 
-        <div className="col-md-6 col-sm-12">
+        <div className="col-md-6">
           <form className="p-5 shadow" id='FL'>
 
             <div className="form-floating mb-3">

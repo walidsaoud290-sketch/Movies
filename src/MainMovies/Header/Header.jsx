@@ -15,22 +15,22 @@ const Header = () => {
       <>
         <nav className="navbar nvBarOrigin navbar-expand-lg rounded">
           <div className="container-fluid">
-            <a className="navbar-brand text-white" href="/">
+            <Link className="navbar-brand text-white" to="/home">
               <img src="src/assets/side_simplified_600px.png" style={{ height: '40px' }} alt="" />
-            </a>
+            </Link>
 
-            {/* <button
+            <button
               className="navbar-toggler bg-white"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#navbarNav"
             >
               <span className="navbar-toggler-icon"></span>
-            </button> */}
+            </button>
 
             <div className="collapse navbar-collapse my-6" id="navbarNav">
               <ul className="navbar-nav ms-auto">
-                <Link className='l' to={"/"}> <li className="nav-item">Home</li></Link>
+                <Link className='l' to={"/home"}> <li className="nav-item">Home</li></Link>
                 <Link className='l' to={"/Pricing"}> <li className="nav-item">Pricing</li></Link>
                 <Link className='l' to={"/About"}> <li className="nav-item">About</li></Link>
                 <Link className='l' to={"/Contact"}> <li className="nav-item">Contact</li></Link>
@@ -47,9 +47,8 @@ const Header = () => {
                     <img
                       src={image}
                       alt="Avatar"
-                      width="40"
-                      height="40"
-                      className="rounded-circle me-2"
+                      style={{ width: '40px', height: '40px' }}
+                      className="rounded-circle"
                     />
                   </a>
 

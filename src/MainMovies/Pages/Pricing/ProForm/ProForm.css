@@ -1,0 +1,36 @@
+.pro-icon {
+  display: flex;
+  justify-content:space-between;
+  margin-bottom: 15px;
+}
+
+.pro-icon svg {
+  font-size: 42px;
+  color: #e50914;
+  filter: drop-shadow(0 0 10px rgba(229,9,20,0.6));
+}
+
+.form-floating > .form-control {
+  background: #111 !important;
+  border: 1px solid #333;
+  color: #fff !important;
+  height: 54px;
+  border-radius: 12px !important;
+  transition: 0.25s ease-in-out;
+}
+
+.form-floating > .form-control:focus {
+  border-color: #e50914;
+  box-shadow: 0 0 12px rgba(229, 9, 20, 0.8);
+  background: #151515 !important;
+}
+.form-floating label {
+  color: #aaa !important;
+}
+
+.form-floating > .form-control:not(:placeholder-shown) + label {
+  opacity: 0.8 !important;
+}
+
+
+
