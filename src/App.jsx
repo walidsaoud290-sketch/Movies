@@ -21,15 +21,15 @@ function App() {
     <>
       {/* {!isFormValid ? (
         <context.Provider value={{
-          user, setUser, 
-          HaveAccount, setIsHaveAccount, 
-          isFormValid, setIsFormValid, 
-          setIsForgetPassword, 
+          user, setUser,
+          HaveAccount, setIsHaveAccount,
+          isFormValid, setIsFormValid,
+          setIsForgetPassword,
           dateBirth, setDateBirth
         }}>
           {!isForgetPassword ? (
             <div className={`auth-wrapper ${HaveAccount ? "slide-in" : "slide-out"}`}>
-              {HaveAccount ? <LogIn/> : <SignIn/>}
+              {HaveAccount ? <LogIn /> : <SignIn />}
             </div>
           ) : (
             <div className='ForgetPage'><ForgetPassword /></div>
@@ -39,7 +39,7 @@ function App() {
       <MainMovies user={user} dateBirth={dateBirth} />
       {/* 
       )
-    } */}
+      } */}
     </>
   )
 }
