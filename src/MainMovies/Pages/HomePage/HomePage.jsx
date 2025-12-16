@@ -33,7 +33,7 @@ const HomePage = () => {
 
   useEffect(() => {
   if (movieList?.results?.data) {
-    const randomMovies = getRandomMovies(movieList.results.data, 5);
+    const randomMovies = getRandomMovies(movieList.results.data, 10);
     setTrendingMovieList(randomMovies);
   }
   }, [movieList]);

@@ -10,34 +10,34 @@ const ForgetPassword = () => {
     const [isValideEmail,setIsValidEmail] = useState(false);
     const [iscodeValide,setIsCodeValide] = useState(false);
     const [isTheSamePassword,setIsTheSamePassword] = useState(true);
+    const [generatedCode, setGeneratedCode] = useState(null);
+
+    const generateCode = () => {
+        return Math.floor(100000 + Math.random() * 900000).toString();
+    };
 
     const email = useRef();
     const password = useRef();
     const code = useRef();
     const confirmPassword = useRef();
 
-    const Confirm = ()=>{
-        let currentCode = code.current.value
-        if(currentCode.trim()===""){
-            document.getElementById('codeErr').innerHTML="code is required"
-            return false;
+    const Confirm = () => {
+        const currentCode = code.current.value;
+
+        if (!currentCode) {
+            document.getElementById("codeErr").innerHTML = "Code is required";
+            return;
         }
 
-        if(isNaN(currentCode)){
-            document.getElementById('codeErr').innerHTML="The code should be a number of 6 caracters"
-            return false;
+        if (currentCode !== generatedCode) {
+            document.getElementById("codeErr").innerHTML = "Invalid code";
+            return;
         }
 
-        if(currentCode===RandomCode){
-            setIsCodeValide(true);
-            code.current.value=""
-            code.current.setAttribute('readOnly',"")
-                        document.getElementById('codeErr').innerHTML=""
-        }else{
-            document.getElementById('codeErr').innerHTML="Invalide code"
-            setIsCodeValide(false);
-        }
-    }
+        document.getElementById("codeErr").innerHTML = "";
+        setIsCodeValide(true);
+        code.current.value="";
+};
 
 
     const validationPassword = (passwordValue)=>{
@@ -65,24 +65,31 @@ const ForgetPassword = () => {
         }
     }
 
-    const Search = (e) =>{
-        e.preventDefault();
-        let emailValue = email.current.value;
-        let responseEmail = useValidatEmail(emailValue);
-        if(responseEmail===""){
-            setIsValidEmail(true);
-            alert('Le code est :'+RandomCode)
-            document.getElementById('err').innerHTML=""
-        }else{
-            document.getElementById('err').innerHTML=responseEmail
-        }
-    }
+    const Search = async (e) => {
+  e.preventDefault();
+
+  const emailValue = email.current.value;
+  const emailError = useValidatEmail(emailValue);
+
+  if (emailError !== "") {
+    document.getElementById("err").innerHTML = emailError;
+    return;
+  }
+
+  document.getElementById("err").innerHTML = "";
+
+  const code = generateCode();
+  setGeneratedCode(code);
+  setIsValidEmail(true);
+  alert("Le code est :"+code)
+};
 
   return (
     <div className='shadow  p-4 forget row col-sm-10' >
         <div className="txt text-dark col ">
+            <img style={{width:"300px"}} src="/src/assets/side_simplified_600px.png" alt="" />
             <h1 className='text-light'>Forget Password</h1>
-        <p className='text-white'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic asperiores pariatur voluptas culpa ipsam. Consequuntur, assumenda fuga iusto ea eum nulla amet vitae odio voluptatem possimus doloremque harum optio aut.</p>
+        <p className='text-white'>Enter your email to receive a verification code.</p>
             <div className="form-floating mb-3">
                 <input ref={email} type="email" class="form-control rounded-3" id="floatingInput1" placeholder="name@example.com" />
                 <label htmlFor="floatingInput1">Email address</label>

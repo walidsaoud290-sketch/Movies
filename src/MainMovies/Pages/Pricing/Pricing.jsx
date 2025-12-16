@@ -17,40 +17,40 @@ const Pricing = () => {
           <h4>Basic</h4>
           <span className="pricing-price">$0</span>
           <ul>
-            <li>5 users</li>
-            <li>1GB storage</li>
-            <li>Email support</li>
+            <li>Watch on 1 device</li>
+            <li>Limited movie access</li>
+            <li>Standard video quality</li>
           </ul>
           <button data-bs-toggle="modal"
                   data-bs-target="#basicForm"
-                  aria-expanded="false">Start Free</button>
+                  aria-expanded="false">Start Watching</button>
         </div>
 
         <div className="pricing-item pricing-featured">
-          <span className="pricing-badge">POPULAR</span>
+          <span className="pricing-badge">MOST POPULAR</span>
           <h4>Pro</h4>
           <span className="pricing-price">$19</span>
           <ul>
-            <li>Unlimited users</li>
-            <li>10GB storage</li>
-            <li>Priority support</li>
+            <li>Watch on multiple devices</li>
+            <li>Unlimited movies & servies</li>
+            <li>HD & FULL HD quality</li>
           </ul>
           <button data-bs-toggle="modal"
                   data-bs-target="#proForm"
-                  aria-expanded="false" className="btn-primary">Go Pro</button>
+                  aria-expanded="false" className="btn-primary">Upgrade to Pro</button>
         </div>
 
         <div className="pricing-item">
           <h4>Elite</h4>
           <span className="pricing-price">$39</span>
           <ul>
-            <li>Unlimited access</li>
-            <li>50GB storage</li>
-            <li>24/7 support</li>
+            <li>All content unlocked</li>
+            <li>Ultra HD & 4K quality</li>
+            <li>VIP support 24/7</li>
           </ul>
           <button data-bs-toggle="modal"
                   data-bs-target="#eliteForm"
-                  aria-expanded="false">Contact Sales</button>
+                  aria-expanded="false"> Join Elite</button>
         </div>
 
       </div>
