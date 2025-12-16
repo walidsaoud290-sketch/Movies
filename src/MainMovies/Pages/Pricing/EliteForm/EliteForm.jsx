@@ -70,7 +70,7 @@ const EliteForm = ({ id }) => {
             </h5>
             <button
               type="button"
-              className="btn-close btn-close-white"
+              className="btn-close X bg-light"
               data-bs-dismiss="modal"
             ></button>
           </div>

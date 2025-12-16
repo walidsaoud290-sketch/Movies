@@ -10,7 +10,7 @@ import About from '../Pages/AboutPage/About';
 import NotFound from '../Pages/PageNotFound/NotFound';
 import WatchPage from '../Pages/WatchPage/WatchPage';
 
-const MainMovies = ({ user, dateBirth }) => {
+const MainMovies = ({ user, dateBirth, setIsFormValid }) => {
 
     const [isYourBirthday, setIsYourBirthday] = useState(false);
     const [isClosed, setIsClosed] = useState(false);

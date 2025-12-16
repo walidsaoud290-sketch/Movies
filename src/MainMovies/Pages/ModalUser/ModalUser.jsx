@@ -59,8 +59,8 @@ const ModalUser = ({ id }) => {
           </div>
 
           <div className="modal-footer">
-            <button className="btn btn-light text-dark" data-bs-dismiss="modal">Submit</button>
-            <button className="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            <button className="btn btn-outline-danger" data-bs-dismiss="modal">Submit</button>
+            <button className="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
           </div>
 
         </div>
