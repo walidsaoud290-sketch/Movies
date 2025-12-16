@@ -4,6 +4,7 @@ import cors from 'cors';
 import { getHomepageCards } from './home.js';
 import { getSearchCards } from './search.js';
 import { getMoviesCards } from './movies.js';
+import { getMovieData } from './mData.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -35,6 +36,17 @@ app.get('/api/movies', async (req, res) => {
   const page = req.query.p || 1;
   try {
     const data = await getMoviesCards(page);
+    res.json({ success: true, results: data });
+  } catch (err) {
+    console.error('Retrieving error:', err);
+    res.status(500).json({ success: false, error: String(err) });
+  }
+});
+
+app.get('/api/mData', async (req, res) => {
+  const id = req.query.id || 1;
+  try {
+    const data = await getMovieData(id);
     res.json({ success: true, results: data });
   } catch (err) {
     console.error('Retrieving error:', err);

@@ -11,8 +11,7 @@ const About = () => {
   return (
     <section className="about-section">
       <div className={`about-container ${show ? 'show' : ''}`}>
-        <img style={{width:"100px"}} src="src/assets/logo_simplified_389px.png" alt="" />
-        <h2>About MovieStream Project</h2>
+        <img style={{ width: "400px", marginBottom: "40px" }} src="src/assets/full_simplified_1268px.png" alt="" />
         <p>
           Welcome to MovieStream! We bring you the latest movies, trailers, and exclusive content.
           Dive into the world of cinema with curated recommendations and discover hidden gems.

@@ -2,14 +2,15 @@ import { useEffect, useState } from 'react'
 import './MainMovies.css'
 import HapBirthday from '../HappyBirthday/HapBirthday';
 import AppMovies from '../AppMovies';
-import {BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import HomePage from '../Pages/HomePage/HomePage';
 import Pricing from '../Pages/Pricing/Pricing';
 import Contact from '../Pages/ContactPage/Contact';
 import About from '../Pages/AboutPage/About';
 import NotFound from '../Pages/PageNotFound/NotFound';
+import WatchPage from '../Pages/WatchPage/WatchPage';
 
-const MainMovies = ({user, dateBirth}) => {
+const MainMovies = ({ user, dateBirth }) => {
 
     const [isYourBirthday, setIsYourBirthday] = useState(false);
     const [isClosed, setIsClosed] = useState(false);
@@ -23,27 +24,29 @@ const MainMovies = ({user, dateBirth}) => {
             }
         }
     }, [dateBirth]);
-    
+
     return (
-       <BrowserRouter>
-       
-       <>   
-         {isYourBirthday && !isClosed && (
-                <HapBirthday user={user} setIsClosed={setIsClosed}/>
-            )}
-            {(!isYourBirthday || isClosed) && (
-                <AppMovies />
-            )}
-        </>
-        <Routes>
-            <Route path='/' element={<Navigate to={"/home"} replace/>}/>
-            <Route path='/home' index={true} element={<><HomePage /></>} />
-            <Route path='/pricing' element={<><Pricing /></>} />
-            <Route path='*' element={<><NotFound /></>} />
-            <Route path='/About' element={<><About /></>}/>
-            <Route path='/Contact' element={<><Contact /></>}/>
-        </Routes>
-       </BrowserRouter> 
+        <BrowserRouter>
+
+            <>
+                {isYourBirthday && !isClosed && (
+                    <HapBirthday user={user} setIsClosed={setIsClosed} />
+                )}
+                {(!isYourBirthday || isClosed) && (
+                    <AppMovies />
+                )}
+            </>
+            <Routes>
+                <Route path='/' element={<Navigate to={"/home"} replace />} />
+                <Route path='/home' index={true} element={<><HomePage /></>} />
+                <Route path='/pricing' element={<><Pricing /></>} />
+                <Route path='*' element={<><NotFound /></>} />
+                <Route path='/About' element={<><About /></>} />
+                <Route path='/Contact' element={<><Contact /></>} />
+                <Route path='/Watch' element={<><WatchPage /></>} />
+
+            </Routes>
+        </BrowserRouter>
     )
 }
 
