@@ -93,24 +93,3 @@
 .pricing-item ul li {
   margin-bottom: 10px;
 }
-
-/* BUTTON */
-.pricing-item button {
-  background: transparent;
-  border: 1px solid #dc3545;
-  color: #fff;
-  padding: 12px 0;
-  border-radius: 30px;
-  width: 100%;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.3s;
-}
-
-.pricing-item button:hover {
-  background: #dc3545;
-  transform: scale(1.03);
-}
-
-.btn-primary {
-  background: #dc3545;
-}

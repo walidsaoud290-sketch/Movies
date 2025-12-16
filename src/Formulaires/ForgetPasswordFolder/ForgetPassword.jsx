@@ -98,8 +98,8 @@ const ForgetPassword = () => {
         </div>
             {isValideEmail &&
             <><div className="form-floating divCode mb-3">
-                <input ref={code} type="text" class="form-control code rounded-3" id="floatingInput2" placeholder="XXXXXX" />
-                <label htmlFor="floatingInput2">Code</label>
+                <input ref={code} type="text" minLength={6} class="form-control code rounded-3" id="floatingInput2" placeholder="XXXXXX" />
+                <label htmlFor="floatingInput2" className='ms-2'>Code</label>
             </div>
                 <p className='text-danger' id='codeErr'></p>
             </>

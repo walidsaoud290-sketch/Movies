@@ -9,7 +9,7 @@ import Contact from '../Pages/ContactPage/Contact';
 import About from '../Pages/AboutPage/About';
 import NotFound from '../Pages/PageNotFound/NotFound';
 
-const MainMovies = ({user, dateBirth}) => {
+const MainMovies = ({user, dateBirth,setIsFormValid}) => {
 
     const [isYourBirthday, setIsYourBirthday] = useState(false);
     const [isClosed, setIsClosed] = useState(false);
@@ -32,7 +32,7 @@ const MainMovies = ({user, dateBirth}) => {
                 <HapBirthday user={user} setIsClosed={setIsClosed}/>
             )}
             {(!isYourBirthday || isClosed) && (
-                <AppMovies />
+                <AppMovies setIsFormValid={setIsFormValid}/>
             )}
         </>
         <Routes>

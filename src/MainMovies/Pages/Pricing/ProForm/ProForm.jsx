@@ -45,7 +45,7 @@ const ProForm = ({id}) => {
             <div className="modal-content">
                 <div className="modal-header">
                     <h5 className="modal-title text-center">Pro Plan Signup</h5>
-                    <button type="button" className="btn-close bg-light position-absolute end-0 top-0 m-2" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" className="btn-close X bg-light position-absolute end-0 top-0 m-2" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div className="modal-body">
                   <div className="pro-icon">

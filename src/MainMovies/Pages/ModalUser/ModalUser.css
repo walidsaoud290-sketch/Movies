@@ -18,7 +18,6 @@ input[type="file"]{
 .modal-content {
   background: #0b0b0b !important; 
   border-radius: 20px;
-  border: none;
   padding-bottom: 10px;
   color: white;
   box-shadow: 0 0 30px rgba(255, 0, 0, 0.25);

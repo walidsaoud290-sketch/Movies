@@ -23,7 +23,8 @@ const Pricing = () => {
           </ul>
           <button data-bs-toggle="modal"
                   data-bs-target="#basicForm"
-                  aria-expanded="false">Start Watching</button>
+                  aria-expanded="false"
+                  className='btn  btn-outline-danger w-100 mt-2'>Start Watching</button>
         </div>
 
         <div className="pricing-item pricing-featured">
@@ -35,9 +36,10 @@ const Pricing = () => {
             <li>Unlimited movies & servies</li>
             <li>HD & FULL HD quality</li>
           </ul>
-          <button data-bs-toggle="modal"
+          <button 
+          data-bs-toggle="modal"
                   data-bs-target="#proForm"
-                  aria-expanded="false" className="btn-primary">Upgrade to Pro</button>
+                  aria-expanded="false" className="btn  btn-outline-danger w-100 mt-2">Upgrade to Pro</button>
         </div>
 
         <div className="pricing-item">
@@ -50,7 +52,9 @@ const Pricing = () => {
           </ul>
           <button data-bs-toggle="modal"
                   data-bs-target="#eliteForm"
-                  aria-expanded="false"> Join Elite</button>
+                  aria-expanded="false"
+                  className='btn btn-outline-danger  w-100 mt-2'
+                  > Join Elite</button>
         </div>
 
       </div>
