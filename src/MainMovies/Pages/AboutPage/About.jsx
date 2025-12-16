@@ -11,9 +11,10 @@ const About = () => {
   return (
     <section className="about-section">
       <div className={`about-container ${show ? 'show' : ''}`}>
-        <h2>About Our Movie Project</h2>
+        <img style={{width:"100px"}} src="src/assets/logo_simplified_389px.png" alt="" />
+        <h2>About MovieStream Project</h2>
         <p>
-          Welcome to MovieVerse! We bring you the latest movies, trailers, and exclusive content.
+          Welcome to MovieStream! We bring you the latest movies, trailers, and exclusive content.
           Dive into the world of cinema with curated recommendations and discover hidden gems.
         </p>
         <p>

@@ -69,9 +69,13 @@ const SignIn = () => {
 
 
   return (
-    <div className='SignIn row'>
+    <div className='SignIn p-5 row col-sm-12'>
+        <div className="row ">
+        <div className="col-md-6 txtSign">
+            <Presentation etat={true}/>
+        </div>
         <div className="col-md-6">
-            <form action="" className='shadow' id='FormCreate'>
+            <form className='shadow' id='FormCreate'>
                 <div className="form-floating mb-3">
                     <input onChange={e=>setUser(e.currentTarget.value)} type="text" className="form-control rounded-3 text-dark" id="floatingInput1" placeholder="userName" />
                     <label htmlFor="floatingInput1">Username</label>
@@ -98,10 +102,8 @@ const SignIn = () => {
                 <button onClick={validateForm} type="submit" className="btn btn-outline-danger w-100">Sign Up</button>
             </form>
         </div>
-
-        <div className="col-md-6 txtSign">
-            <Presentation />
         </div>
+        
     </div>
   )
 }

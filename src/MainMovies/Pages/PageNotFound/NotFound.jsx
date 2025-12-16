@@ -15,7 +15,7 @@ const NotFound = () => {
         <p className="error-message">
           Oops! The page you are looking for does not exist.
         </p>
-        <button onClick={()=>navigate('/')} className="btn btn-outline-danger">
+        <button onClick={()=>navigate('/home')} className="btn btn-outline-danger">
           Go Back Home
         </button>
       </div>

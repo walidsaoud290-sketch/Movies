@@ -11,7 +11,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.hide-mouse-cursor {
+  cursor: none;
+}
 
+/* Hides the mouse cursor over the entire webpage */
 /* body{
   overflow-x:hidden;
 } */

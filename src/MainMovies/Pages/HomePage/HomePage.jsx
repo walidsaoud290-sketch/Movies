@@ -4,15 +4,16 @@ import { FadeLoader } from 'react-spinners'
 import Card from '../../../components/Card/Card'
 import SearchBar from '../../../components/SearchBar/SearchBar'
 import Footer from '../../FooterFolder/Footer'
+import TrendingMovies from '../../../components/TrendingMovies/TrendingMovies'
 
 const HomePage = () => {
-
   const [movieList, setMovieList] = useState([]);
   const [listSearchMovie,setListSearchMovie] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
   const [TrendingMovieList,setTrendingMovieList] = useState([])
+
 
   const FetchMovie = async (page = 1) => {
     try {
@@ -87,50 +88,7 @@ const HomePage = () => {
   <div className="section-title">
     <p>Trending Movie</p>
   </div>
-
-  <div
-    id="trendingCarousel"
-    className="carousel slide"
-    data-bs-ride="carousel"
-    data-bs-interval="1000" // 1 second
-  >
-    <div className="carousel-inner">
-      {TrendingMovieList.map((movie, idx) => (
-        <div
-          key={idx}
-          className={`carousel-item ${idx === 0 ? "active" : ""}`}
-        >
-          <img
-            src={movie.poster_path}
-            className="d-block w-100"
-            alt={movie.title}
-            height={"400px"}
-            width={"500px"}
-          />
-        </div>
-      ))}
-    </div>
-
-    <button
-      className="carousel-control-prev"
-      type="button"
-      data-bs-target="#trendingCarousel"
-      data-bs-slide="prev"
-    >
-      <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span className="visually-hidden">Previous</span>
-    </button>
-
-    <button
-      className="carousel-control-next"
-      type="button"
-      data-bs-target="#trendingCarousel"
-      data-bs-slide="next"
-    >
-      <span className="carousel-control-next-icon" aria-hidden="true"></span>
-      <span className="visually-hidden">Next</span>
-    </button>
-  </div>
+    <TrendingMovies TrendingMovieList={TrendingMovieList}/>
 </div>
 
       {/* ALL MOVIES */}
