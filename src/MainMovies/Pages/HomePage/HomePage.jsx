@@ -5,13 +5,14 @@ import Card from '../../../components/Card/Card'
 import SearchBar from '../../../components/SearchBar/SearchBar'
 import Footer from '../../FooterFolder/Footer'
 import TrendingMovies from '../../../components/TrendingMovies/TrendingMovies'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const HomePage = () => {
   const [movieList, setMovieList] = useState([]);
   const [listSearchMovie, setListSearchMovie] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
+  const navigate  = useNavigate();
   const [query, setQuery] = useState("");
   const [TrendingMovieList, setTrendingMovieList] = useState([])
 
@@ -165,12 +166,14 @@ const HomePage = () => {
                 id={movie.id}
               />
             )) : movieList?.results?.data?.map((movie) => (
-              <Card
+              <div onClick={()=>navigate('/Watch/'+movie.id)}> <Card
                 key={movie.id}
                 title={movie.title}
                 /*poster_path={movie.poster_path} */
                 id={movie.id}
               />
+                </div>
+              
             ))}
           </div>
 

@@ -5,7 +5,7 @@ const Card = ({ title, id }) => {
   const poster_path = `https://img.cdno.my.id/thumb/w_312/h_468/${id}.jpg`;
 
   return (
-    <a className="card" href={`/Watch/${id}`}>
+    <a className="card">
       {/* The Glow Element - Duplicates the image source */}
       <img src={poster_path} className="card-glow" alt="" aria-hidden="true" />
 
