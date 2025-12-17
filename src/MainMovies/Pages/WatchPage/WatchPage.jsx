@@ -29,6 +29,7 @@ const WatchPage = () => {
     }, [id]);
 
     return (
+        <>
         <div style={styles.pageContainer}>
 
             {/* 1. The Cinema Container: Limits max width so it doesn't look stretched on 4k screens */}
@@ -60,6 +61,8 @@ const WatchPage = () => {
 
             </div>
         </div>
+        </>
+        
     );
 };
 
