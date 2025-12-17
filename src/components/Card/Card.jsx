@@ -1,9 +1,11 @@
 import React from 'react'
 import './Card.css';
 
-const Card = ({ title, poster_path }) => {
+const Card = ({ title, id }) => {
+  const poster_path = `https://img.cdno.my.id/thumb/w_312/h_468/${id}.jpg`;
+
   return (
-    <div className="card">
+    <a className="card" href={`/Watch/${id}`}>
       {/* The Glow Element - Duplicates the image source */}
       <img src={poster_path} className="card-glow" alt="" aria-hidden="true" />
 
@@ -13,7 +15,7 @@ const Card = ({ title, poster_path }) => {
       <div className="card-body">
         <h5 className="card-title">{title}</h5>
       </div>
-    </div>
+    </a>
   )
 }
 
