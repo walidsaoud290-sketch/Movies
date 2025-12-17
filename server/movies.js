@@ -30,7 +30,7 @@ export async function getMoviesCards(page) {
         MovieCards.data.push({
             title: $(element).find("h2").text(),
             poster_path: parseSrcset($(element).find("img").attr('data-srcset'))[2].url,
-            link: $(element).find('a').attr('href')
+            id: $(element).find('a').attr('href').split('/').at(-2)
         })
     });
 

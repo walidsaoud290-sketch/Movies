@@ -1,4 +1,5 @@
 import * as cheerio from 'cheerio';
+import { getEmbeds } from './decode_and_watch.js';
 
 const base_URL = "https://ww4.fmovies.co/film/";
 
@@ -20,6 +21,8 @@ export async function getMovieData(id) {
 
     const $ = cheerio.load(html);
     const MovieData = { embed: [], meta: {} };
+
+    MovieData.embed = await getEmbeds(id.split('-').at(-1));
 
     const mainDiv = $(".card-body");
     MovieData.meta.title = mainDiv.find('h1').text();
