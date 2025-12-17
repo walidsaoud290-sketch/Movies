@@ -21,15 +21,7 @@ const BasicForm = ({id}) => {
                    <button
   type="button"
   className="btn btn-outline-danger w-100 mt-3"
-  onClick={() => {
-    const modal = document.getElementById(id);
-    const bootstrapModal = window.bootstrap.Modal.getInstance(modal);
-    bootstrapModal?.hide();   
-
-    setTimeout(() => {
-      navigate('/home');    
-    }, 300);
-  }}
+  data-bs-dismiss="modal" aria-label="Close"
 >
   Thank you
 </button>

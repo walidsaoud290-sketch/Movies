@@ -159,15 +159,16 @@ const HomePage = () => {
 
           <div className="all movies-show">
             {listSearchMovie.length > 0 ? listSearchMovie?.map((movie) => (
-              <Card
-                key={movie.id}
+              <div key={movie.id} onClick={()=>navigate('/Watch/'+movie.id)}>
+                <Card
                 title={movie.title}
                 /* poster_path={movie.poster_path} */
                 id={movie.id}
               />
+              </div>
+              
             )) : movieList?.results?.data?.map((movie) => (
-              <div onClick={()=>navigate('/Watch/'+movie.id)}> <Card
-                key={movie.id}
+              <div key={movie.id} onClick={()=>navigate('/Watch/'+movie.id)}> <Card
                 title={movie.title}
                 /*poster_path={movie.poster_path} */
                 id={movie.id}
