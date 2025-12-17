@@ -156,7 +156,7 @@ const HomePage = () => {
             </div>
           )}
 
-          <div className="all-movies-show">
+          <div className="all movies-show">
             {listSearchMovie.length > 0 ? listSearchMovie?.map((movie) => (
               <Card
                 key={movie.id}
