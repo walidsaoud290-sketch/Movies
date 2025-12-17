@@ -130,7 +130,8 @@ export async function getEmbeds(videoId) {
     // Wait for all to finish
     const results = await Promise.all(promises);
 
-    const test = results[0].url
+    const test = results[0]['url']
+
 
     // Filter out failed attempts (nulls)
     return test//results.filter(r => r !== null);
