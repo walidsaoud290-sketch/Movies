@@ -1,15 +1,34 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-// You would typically fetch this data based on an ID from the URL
-const MOCK_MOVIE = {
-    title: "Inception",
-    src: "https://vidsrc.xyz/embed/movie/1477594", // Example embed
-    description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
-    rating: "8.8",
-    year: "2010"
-};
 
 const WatchPage = () => {
+    const [response, setResponse] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
+
+    const { id } = useParams();
+
+    const FetchMovie = async (id) => {
+        try {
+            setIsLoading(true);
+            const response = await fetch('http://localhost:3000/api/mData?id=' + id);
+            if (response.ok) {
+                const data = await response.json()
+                console.log(data);
+                setResponse(data)
+            }
+        } catch (e) {
+            console.log(e)
+        } finally {
+            setIsLoading(false);
+        }
+    }
+
+    useEffect(() => {
+        FetchMovie(id);
+    }, [id]);
+
     return (
         <div style={styles.pageContainer}>
 
@@ -19,8 +38,8 @@ const WatchPage = () => {
                 {/* 2. The Aspect Ratio Wrapper */}
                 <div style={styles.videoWrapper}>
                     <iframe
-                        src={MOCK_MOVIE.src}
-                        title={MOCK_MOVIE.title}
+                        src={response.embeds || ''}
+                        title={response?.meta?.title || 'Movie player'}
                         style={styles.iframe}
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -31,13 +50,13 @@ const WatchPage = () => {
                 {/* 3. Info Area */}
                 <div style={styles.infoArea}>
                     <div style={styles.metaRow}>
-                        <h1 style={styles.title}>{MOCK_MOVIE.title}</h1>
+                        <h1 style={styles.title}>{response?.meta?.title ?? 'Loading title...'}</h1>
                         <div style={styles.badges}>
-                            <span style={styles.badge}>{MOCK_MOVIE.year}</span>
-                            <span style={{ ...styles.badge, backgroundColor: '#e50914' }}>{MOCK_MOVIE.rating}</span>
+                            <span style={styles.badge}>{response?.meta?.year ?? '—'}</span>
+                            <span style={{ ...styles.badge, backgroundColor: '#e50914' }}>{response?.meta?.quality ?? '—'}</span>
                         </div>
                     </div>
-                    <p style={styles.description}>{MOCK_MOVIE.description}</p>
+                    <p style={styles.description}>{response?.meta?.desc ?? ''}</p>
                 </div>
 
             </div>

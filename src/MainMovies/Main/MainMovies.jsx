@@ -43,7 +43,7 @@ const MainMovies = ({ user, dateBirth, setIsFormValid }) => {
                 <Route path='*' element={<><NotFound /></>} />
                 <Route path='/About' element={<><About /></>} />
                 <Route path='/Contact' element={<><Contact /></>} />
-                <Route path='/Watch' element={<><WatchPage /></>} />
+                <Route path='/Watch/:id' element={<><WatchPage /></>} />
 
             </Routes>
         </BrowserRouter>

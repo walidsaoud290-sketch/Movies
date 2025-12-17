@@ -8,11 +8,11 @@ import TrendingMovies from '../../../components/TrendingMovies/TrendingMovies'
 
 const HomePage = () => {
   const [movieList, setMovieList] = useState([]);
-  const [listSearchMovie,setListSearchMovie] = useState([]);
+  const [listSearchMovie, setListSearchMovie] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
-  const [TrendingMovieList,setTrendingMovieList] = useState([])
+  const [TrendingMovieList, setTrendingMovieList] = useState([])
 
 
   const FetchMovie = async (page = 1) => {
@@ -32,18 +32,18 @@ const HomePage = () => {
   }
 
   useEffect(() => {
-  if (movieList?.results?.data) {
-    const randomMovies = getRandomMovies(movieList.results.data, 10);
-    setTrendingMovieList(randomMovies);
-  }
+    if (movieList?.results?.data) {
+      const randomMovies = getRandomMovies(movieList.results.data, 10);
+      setTrendingMovieList(randomMovies);
+    }
   }, [movieList]);
 
 
   const getRandomMovies = (movies = [], count = 10) => {
-  if (!movies.length) return [];
+    if (!movies.length) return [];
 
-  const shuffled = [...movies].sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, count);
+    const shuffled = [...movies].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
   };
 
   const FetchSearchQuery = async (query) => {
@@ -68,12 +68,12 @@ const HomePage = () => {
 
 
   useEffect(() => {
-    if(!query ){
+    if (!query) {
       FetchMovie(1);
       setListSearchMovie([])
       return
     }
-      const handler = setTimeout(() => {
+    const handler = setTimeout(() => {
       FetchSearchQuery(query);
     }, 500);
     return () => clearTimeout(handler);
@@ -81,102 +81,102 @@ const HomePage = () => {
   }, [query])
 
   return (
-  <div className="home">
-    <div className="movies">
+    <div className="home">
+      <div className="movies">
 
-      <div className="trending-movies">
-  <div className="section-title">
-    <p>Trending Movie</p>
-  </div>
-    <TrendingMovies TrendingMovieList={TrendingMovieList}/>
-</div>
-
-      {/* ALL MOVIES */}
-      <div className="all-movies mt-5">
-        <div className="menu mb-4">
-      <SearchBar setQuery={setQuery} />
-    </div>
-        <div className="section-title">
-            
-          <div
-            className="page-item"
-            onClick={() => setPage(prev => Math.max(prev - 1, 1))}
-          >
-            <span className="page-link">&lt;</span>
+        <div className="trending-movies">
+          <div className="section-title">
+            <p>Trending Movie</p>
           </div>
-
-          <div
-            className="page-item"
-            onClick={() => setPage(prev => Math.max(prev - 10, 1))}
-          >
-            <span className="page-link">&lt;&lt;</span>
-          </div>
-
-          <p>
-            All movies
-            {movieList?.results?.meta?.max_pages && (
-              <> ({page}/{movieList.results.meta.max_pages})</>
-            )}
-          </p>
-
-          <div
-            className="page-item"
-            onClick={() =>
-              setPage(prev =>
-                Math.min(
-                  prev + 10,
-                  movieList?.results?.meta?.max_pages || prev
-                )
-              )
-            }
-          >
-            <span className="page-link">&gt;&gt;</span>
-          </div>
-
-          <div
-            className="page-item"
-            onClick={() =>
-              setPage(prev =>
-                Math.min(
-                  prev + 1,
-                  movieList?.results?.meta?.max_pages || prev
-                )
-              )
-            }
-          >
-            <span className="page-link">&gt;</span>
-          </div>
-
+          <TrendingMovies TrendingMovieList={TrendingMovieList} />
         </div>
 
-        {isLoading && (
-          <div className="loader">
-            <FadeLoader color="white" />
+        {/* ALL MOVIES */}
+        <div className="all-movies mt-5">
+          <div className="menu mb-4">
+            <SearchBar setQuery={setQuery} />
           </div>
-        )}
+          <div className="section-title">
 
-        <div className="all movies-show">
-          {listSearchMovie.length>0 ? listSearchMovie.map((movie,idx)=>(<Card
+            <div
+              className="page-item"
+              onClick={() => setPage(prev => Math.max(prev - 1, 1))}
+            >
+              <span className="page-link">&lt;</span>
+            </div>
+
+            <div
+              className="page-item"
+              onClick={() => setPage(prev => Math.max(prev - 10, 1))}
+            >
+              <span className="page-link">&lt;&lt;</span>
+            </div>
+
+            <p>
+              All movies
+              {movieList?.results?.meta?.max_pages && (
+                <> ({page}/{movieList.results.meta.max_pages})</>
+              )}
+            </p>
+
+            <div
+              className="page-item"
+              onClick={() =>
+                setPage(prev =>
+                  Math.min(
+                    prev + 10,
+                    movieList?.results?.meta?.max_pages || prev
+                  )
+                )
+              }
+            >
+              <span className="page-link">&gt;&gt;</span>
+            </div>
+
+            <div
+              className="page-item"
+              onClick={() =>
+                setPage(prev =>
+                  Math.min(
+                    prev + 1,
+                    movieList?.results?.meta?.max_pages || prev
+                  )
+                )
+              }
+            >
+              <span className="page-link">&gt;</span>
+            </div>
+
+          </div>
+
+          {isLoading && (
+            <div className="loader">
+              <FadeLoader color="white" />
+            </div>
+          )}
+
+          <div className="all movies-show">
+            {listSearchMovie.length > 0 ? listSearchMovie.map((movie, idx) => (<Card
               key={idx}
               title={movie.title}
               poster_path={movie.poster_path}
-              link={movie.link}
-            />)):movieList?.results?.data?.map((movie, idx) => (
-            <Card
-              key={idx}
-              title={movie.title}
-              poster_path={movie.poster_path}
-              link={movie.link}
-            />
-          ))}
+              id={movie.id}
+            />)) : movieList?.results?.data?.map((movie, idx) => (
+              <Card
+                key={idx}
+                title={movie.title}
+                poster_path={movie.poster_path}
+                id={movie.id}
+              />
+            ))}
+          </div>
         </div>
+
       </div>
 
+      <Footer />
     </div>
-
-    <Footer />
-  </div>
-);
+  );
 }
 
 export default HomePage
