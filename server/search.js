@@ -20,8 +20,9 @@ export async function getSearchCards(q) {
     json_data.data.forEach(element => {
         searchCards.push({
             title: element.t,
-            poster_path: `https://img.cdno.my.id/thumb/w_312/h_468/${element.s}.jpg`,
-            link: `https://ww4.fmovies.co/film/${element.s}/`
+            id: element.s
+            /* poster_path: `https://img.cdno.my.id/thumb/w_312/h_468/${element.s}.jpg`,
+            link: `https://ww4.fmovies.co/film/${element.s}/` */
         })
     });
 

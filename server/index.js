@@ -16,10 +16,10 @@ const PORT = process.env.PORT || 3000;
 
 
 /* app.use(authRoutes.json())
-app.use('/api/auth', authRoutes)
+app.use('/api/auth', authRoutes) */
 app.use(cors());
 //connection de mongoDB
-await connectMongoDB(); */
+//await connectMongoDB();
 
 app.get('/api/search', async (req, res) => {
   const q = req.query.q || '';

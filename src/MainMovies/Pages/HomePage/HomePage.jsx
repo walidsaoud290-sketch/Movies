@@ -156,17 +156,19 @@ const HomePage = () => {
             </div>
           )}
 
-          <div className="all movies-show">
-            {listSearchMovie.length > 0 ? listSearchMovie.map((movie, idx) => (<Card
-              key={idx}
-              title={movie.title}
-              poster_path={movie.poster_path}
-              id={movie.id}
-            />)) : movieList?.results?.data?.map((movie, idx) => (
+          <div className="all-movies-show">
+            {listSearchMovie.length > 0 ? listSearchMovie?.map((movie) => (
               <Card
-                key={idx}
+                key={movie.id}
                 title={movie.title}
-                poster_path={movie.poster_path}
+                /* poster_path={movie.poster_path} */
+                id={movie.id}
+              />
+            )) : movieList?.results?.data?.map((movie) => (
+              <Card
+                key={movie.id}
+                title={movie.title}
+                /*poster_path={movie.poster_path} */
                 id={movie.id}
               />
             ))}
