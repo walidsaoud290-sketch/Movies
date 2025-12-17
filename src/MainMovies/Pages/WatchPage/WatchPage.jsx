@@ -1,15 +1,15 @@
 import React from 'react';
 
 // You would typically fetch this data based on an ID from the URL
-const MOCK_MOVIE = {
-    title: "Inception",
+
+const WatchPage = ({title}) => {
+    const MOCK_MOVIE = {
+    title: title,
     src: "https://vidsrc.xyz/embed/movie/1477594", // Example embed
     description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
     rating: "8.8",
     year: "2010"
 };
-
-const WatchPage = () => {
     return (
         <div style={styles.pageContainer}>
 

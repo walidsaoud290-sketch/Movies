@@ -1,15 +1,25 @@
 import express from 'express';
 import cors from 'cors';
+import dotenv from 'dotenv';
+import authRoutes from './auth.js';
 
+import { connectMongoDB } from './DBManagement.js';
 import { getHomepageCards } from './home.js';
 import { getSearchCards } from './search.js';
 import { getMoviesCards } from './movies.js';
 import { getMovieData } from './mData.js';
 
+dotenv.config();
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+
+app.use(authRoutes.json())
+app.use('/api/auth',authRoutes)
 app.use(cors());
+//connection de mongoDB
+await connectMongoDB();
 
 app.get('/api/search', async (req, res) => {
   const q = req.query.q || '';

@@ -7,6 +7,7 @@ import SignIn from './Formulaires/SignInFolder/SignIn.jsx';
 import ForgetPassword from './Formulaires/ForgetPasswordFolder/ForgetPassword.jsx';
 import MainMovies from './MainMovies/Main/MainMovies.jsx';
 import HapBirthday from './MainMovies/HappyBirthday/HapBirthday.jsx';
+import WatchPage from './MainMovies/Pages/WatchPage/WatchPage.jsx';
 
 export const context = createContext();
 
@@ -37,7 +38,8 @@ function App() {
         </context.Provider>
       ) : (
       <MainMovies user={user} dateBirth={dateBirth} setIsFormValid={setIsFormValid}/>
-  )}
+      )}
+
   </>
   )}
 

@@ -11,6 +11,33 @@ const SignIn = () => {
     const email = useRef();
     const password = useRef();
 
+    const registerUser = async () => {
+  const payload = {
+    username: user,
+    email: email.current.value,
+    password: password.current.value,
+    dateBirth
+  };
+
+  try {
+    const res = await fetch('http://localhost:3000/api/auth/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      return;
+    }
+    return 0;
+
+  } catch (error) {
+    console.error('Register error:', error);
+  }
+};
+
     const validateForm = (e) => {
     e.preventDefault();
     let valid = true;
@@ -59,7 +86,9 @@ const SignIn = () => {
             console.log(selectedDate)
         }
     }
-    setIsFormValid(valid);
+    if(registerUser()!==0){
+        valid=false;
+    }
 
     if (valid) {
         setIsFormValid(true);
@@ -97,6 +126,7 @@ const SignIn = () => {
                     <input type='date' onChange={e=>setDateBirth(e.target.value)} id='la' className="form-control rounded-3"/>
                     {errors.dateBirth && <p className='text-danger'>{errors.dateBirth}</p>}
                 </div>
+                {registerUser()!==0 && <p className='text-danger'>Email is alreay exist</p>}
                 <p style={{cursor:"pointer"}} onClick={()=>setIsHaveAccount(true)} className='small mb-3 remembered'>Remembered ?</p>
                 <br />
                 <button onClick={validateForm} type="submit" className="btn btn-outline-danger w-100">Sign Up</button>

@@ -5,6 +5,7 @@ import Card from '../../../components/Card/Card'
 import SearchBar from '../../../components/SearchBar/SearchBar'
 import Footer from '../../FooterFolder/Footer'
 import TrendingMovies from '../../../components/TrendingMovies/TrendingMovies'
+import { Link } from 'react-router-dom'
 
 const HomePage = () => {
   const [movieList, setMovieList] = useState([]);
@@ -162,12 +163,14 @@ const HomePage = () => {
               poster_path={movie.poster_path}
               link={movie.link}
             />)):movieList?.results?.data?.map((movie, idx) => (
-            <Card
+              <Link to={"/home/"+movie.title}><Card
               key={idx}
               title={movie.title}
               poster_path={movie.poster_path}
               link={movie.link}
-            />
+              
+            /></Link>
+            
           ))}
         </div>
       </div>
