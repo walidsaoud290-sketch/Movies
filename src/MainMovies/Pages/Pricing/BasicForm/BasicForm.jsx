@@ -17,10 +17,22 @@ const BasicForm = ({id}) => {
                       As a Basic Plan user, you can enjoy watching <strong>1 movie or series</strong> at a time.  
                       Explore our collection and have a great time!
                     </p>
-                    <button id='tk' type="submit" className="btn btn-outline-danger w-100 mt-2" data-bs-dismiss="modal" aria-label="Close">
-                      Thank you
-                    </button>
                   </form>
+                   <button
+  type="button"
+  className="btn btn-outline-danger w-100 mt-3"
+  onClick={() => {
+    const modal = document.getElementById(id);
+    const bootstrapModal = window.bootstrap.Modal.getInstance(modal);
+    bootstrapModal?.hide();   
+
+    setTimeout(() => {
+      navigate('/home');    
+    }, 300);
+  }}
+>
+  Thank you
+</button>
                 </div>
             </div>
         </div>
