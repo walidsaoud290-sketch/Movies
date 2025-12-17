@@ -22,7 +22,7 @@ export async function getMovieData(id) {
     const $ = cheerio.load(html);
     const MovieData = { embed: '', meta: {} };
 
-    MovieData.embed = await getEmbeds(id.split('-').at(-1))[0];
+    MovieData.embed = await getEmbeds(id.split('-').at(-1));
 
     const mainDiv = $(".card-body");
     MovieData.meta.title = mainDiv.find('h1').text();

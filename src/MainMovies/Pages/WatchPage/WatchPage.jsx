@@ -30,39 +30,44 @@ const WatchPage = () => {
 
     return (
         <>
-        <div style={styles.pageContainer}>
+            <div style={styles.pageContainer}>
 
-            {/* 1. The Cinema Container: Limits max width so it doesn't look stretched on 4k screens */}
-            <div style={styles.cinemaContainer}>
+                {/* 1. The Cinema Container: Limits max width so it doesn't look stretched on 4k screens */}
+                <div style={styles.cinemaContainer}>
 
-                {/* 2. The Aspect Ratio Wrapper */}
-                <div style={styles.videoWrapper}>
-                    <iframe
-                        src={response.embeds || ''}
-                        title={response?.meta?.title || 'Movie player'}
-                        style={styles.iframe}
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                    ></iframe>
-                </div>
-
-                {/* 3. Info Area */}
-                <div style={styles.infoArea}>
-                    <div style={styles.metaRow}>
-                        <h1 style={styles.title}>{response?.meta?.title ?? 'Loading title...'}</h1>
-                        <div style={styles.badges}>
-                            <span style={styles.badge}>{response?.meta?.year ?? '—'}</span>
-                            <span style={{ ...styles.badge, backgroundColor: '#e50914' }}>{response?.meta?.quality ?? '—'}</span>
-                        </div>
+                    {/* 2. The Aspect Ratio Wrapper */}
+                    <div style={styles.videoWrapper}>
+                        {isLoading ? (
+                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', color: '#999' }}>
+                                Loading...
+                            </div>
+                        ) : (
+                            <iframe
+                                src={response?.results?.embed || ''}
+                                title={response?.results?.meta?.title || 'Movie player'}
+                                style={styles.iframe}
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            ></iframe>
+                        )}
                     </div>
-                    <p style={styles.description}>{response?.meta?.desc ?? ''}</p>
-                </div>
 
+                    {/* 3. Info Area */}
+                    <div style={styles.infoArea}>
+                        <div style={styles.metaRow}>
+                            <h1 style={styles.title}>{response?.meta?.title ?? 'Loading title...'}</h1>
+                            <div style={styles.badges}>
+                                <span style={styles.badge}>{response?.meta?.year ?? '—'}</span>
+                                <span style={{ ...styles.badge, backgroundColor: '#e50914' }}>{response?.meta?.quality ?? '—'}</span>
+                            </div>
+                        </div>
+                        <p style={styles.description}>{response?.meta?.desc ?? ''}</p>
+                    </div>
+
+                </div>
             </div>
-        </div>
         </>
-        
+
     );
 };
 
