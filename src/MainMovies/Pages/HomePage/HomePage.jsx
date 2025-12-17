@@ -5,14 +5,12 @@ import Card from '../../../components/Card/Card'
 import SearchBar from '../../../components/SearchBar/SearchBar'
 import Footer from '../../FooterFolder/Footer'
 import TrendingMovies from '../../../components/TrendingMovies/TrendingMovies'
-import { Link, useNavigate } from 'react-router-dom'
 
 const HomePage = () => {
   const [movieList, setMovieList] = useState([]);
   const [listSearchMovie, setListSearchMovie] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
-  const navigate  = useNavigate();
   const [query, setQuery] = useState("");
   const [TrendingMovieList, setTrendingMovieList] = useState([])
 
@@ -159,22 +157,22 @@ const HomePage = () => {
 
           <div className="all movies-show">
             {listSearchMovie.length > 0 ? listSearchMovie?.map((movie) => (
-              <div key={movie.id} onClick={()=>navigate('/Watch/'+movie.id)}>
+              <div key={movie.id} onClick={() => navigate('/Watch/' + movie.id)}>
                 <Card
-                title={movie.title}
-                /* poster_path={movie.poster_path} */
-                id={movie.id}
-              />
+                  title={movie.title}
+                  /* poster_path={movie.poster_path} */
+                  id={movie.id}
+                />
               </div>
-              
+
             )) : movieList?.results?.data?.map((movie) => (
-              <div key={movie.id} onClick={()=>navigate('/Watch/'+movie.id)}> <Card
+              <div key={movie.id} > <Card
                 title={movie.title}
                 /*poster_path={movie.poster_path} */
                 id={movie.id}
               />
-                </div>
-              
+              </div>
+
             ))}
           </div>
 
